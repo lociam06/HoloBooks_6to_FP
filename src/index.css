@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Cagliostro, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   
@@ -7,6 +7,33 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --web_dark: #D00000;
+  --web_mid: #E85D04;
+  --web_light: #FAA307;
+
+  --holo_dark: #000000;
+  --holo_mid: #7F7F7F;
+  --holo_light: #D9D9D9;
+}
+
+/*-------------Fonts*/
+/*Cagliostro*/
+@font-face {
+  font-family: Cagliostro;
+  src: url(../public/Fonts/Cagliostro/Cagliostro-Regular.ttf);
+  font-weight: 400;
+}
+/*Cantarell*/
+@font-face {
+  font-family: Cantarell;
+  src: url(../public/Fonts/Cantarell/Cantarell-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Cantarell;
+  src: url(../public/Fonts/Cantarell/Cantarell-Bold.ttf);
+  font-weight: bold;
 }
 body{
   margin: 0;

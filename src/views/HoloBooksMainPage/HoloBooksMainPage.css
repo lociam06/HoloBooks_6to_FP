@@ -1,6 +1,39 @@
-.CourseCard{
-    
-}
 img{
-    max-height: 50px;
+    height: 50px;
 }
+
+/*----------Page label*/
+#page-label{
+    margin: 2% 10%;
+}
+
+/*----------Course selection section*/
+#course-selection{
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    background-color: #000;
+    padding: 2% 0;
+    gap: 30px;
+}
+/*Course card container*/
+#course-selection h2{
+    font-family: Cantarell;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+#course-selection #courses-card-container{
+    display: flex;
+    justify-content: space-around;
+}
+/*Course cards*/
+#course-selection #courses-card-container .course-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#course-selection #courses-card-container .course-card .title{
+    font-size: 1.5em;
+}
+

@@ -4,11 +4,12 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(90deg, #0D0D0D 13%, #383838 24%, #151515 42%);
+    /*background: linear-gradient(to right, var(--web-dark));*/
+    background-color: var(--web-dark);
 }
 nav img{
-    height: 95%;
-    padding: 5%;
+    height: 90%;
+    padding: 10%;
     box-sizing: border-box;
 }
 
