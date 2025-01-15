@@ -2,7 +2,15 @@
   --web_dark: #D00000;
   --web_mid: #E85D04;
   --web_light: #FAA307;
-
+  
+  --code_dark: #571089;
+  --code_mid: #BC00DD;
+  --code_light: #DB00B6;
+  
+  --dbase_dark: #5E60CE;
+  --dbase_mid: #48BFE3;
+  --dbase_light: #80FFDB;
+  
   --holo_dark: #000000;
   --holo_mid: #7F7F7F;
   --holo_light: #D9D9D9;

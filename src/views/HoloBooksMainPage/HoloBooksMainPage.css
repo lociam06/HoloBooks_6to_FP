@@ -1,39 +1,152 @@
-img{
-    height: 50px;
+#root {
+    --web_dark: #D00000;
+    --web_mid: #E85D04;
+    --web_light: #FAA307;
+  
+    --holo_dark: #000000;
+    --holo_mid: #7F7F7F;
+    --holo_light: #D9D9D9;
 }
 
 /*----------Page label*/
 #page-label{
     margin: 2% 10%;
+    font-size: 1.2em;
 }
 
 /*----------Course selection section*/
 #course-selection{
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: #FFF;
     background-color: #000;
     padding: 2% 0;
     gap: 30px;
 }
-/*Course card container*/
+/*Course section title*/
 #course-selection h2{
     font-family: Cantarell;
     font-weight: bold;
     text-align: center;
     margin: 0;
+    font-size: 2em;
+}
+/*Course section go course btn*/
+#course-selection #go-to-courses-btn{
+    width: 15em;
+    font-size: 1.15em;
+    background-color: #000;
+    color: #FFF;
+    border-radius: 40px;
+    border: 4px solid #FFF;
+    padding: 0.7em;
 }
 #course-selection #courses-card-container{
     display: flex;
     justify-content: space-around;
+    gap: 10em;
+    padding: 0 10em;
 }
-/*Course cards*/
+/*Course cards container*/
 #course-selection #courses-card-container .course-card{
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
+    gap: 1.5em;
+    width: 18em;
 }
 #course-selection #courses-card-container .course-card .title{
     font-size: 1.5em;
 }
+/*Card element*/
+#course-selection #courses-card-container .course-card .card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 18em;
+    border-radius: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+/*Img*/
+#course-selection #courses-card-container .course-card .card img{
+    width: 80%;
+    margin-top: auto;
+}
+#course-selection #courses-card-container .course-card .go-btn{
+    background-color: #FFF;
+    border-radius: 0 0 40px 40px;
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    align-self: flex-end;
+}
+#course-selection #courses-card-container .course-card .go-btn button{
+    width: 100%;
+    height: 3em;
+    border: none;
+    border-radius: 40px;
+    color: #FFF;
+    font-size: 1.1em;
+}
+
+/*----------User testimonelas section*/
+#user-testimonials{
+    background-color: #EEE;
+    padding: 2% 5%;
+}
+/*title*/
+#user-testimonials #user-testimonials-title{
+    margin: 0;
+    margin-top: 0.5em;
+    margin-bottom: 1.3em;
+    text-align: center;
+    font-size: 2em;
+    font-family: Cantarell;
+    font-weight: bold;
+}
+/*carrusel*/
+#user-testimonials #carousel{
+    width: 100%;
+    display: flex;
+    gap: 1em;
+}
+#user-testimonials #carousel button{
+    background-color: transparent;
+    border: none;
+    width: 4em;
+    font-size: 2em;
+}
+/*comments container*/
+#user-testimonials #carousel #carousel-comment-container{
+    display: flex;
+    overflow: hidden;
+}
+#user-testimonials #carousel #carousel-comment-container #comments{
+    display: flex;
+    gap: 2em;
+    font-size: 1.1em;
+    transition: transform 500ms;
+}
+#user-testimonials #carousel #carousel-comment-container .user-comment{
+    background-color: #FFF;
+    width: 32.65em;
+    border-radius: 20px;
+    padding: 2em;
+    box-sizing: border-box;
+}
+#user-testimonials #carousel #carousel-comment-container .user-comment .user{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#user-testimonials #carousel #carousel-comment-container .user-comment .user img{
+    width: 3em;
+}
+
 

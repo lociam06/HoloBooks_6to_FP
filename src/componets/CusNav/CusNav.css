@@ -4,8 +4,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /*background: linear-gradient(to right, var(--web-dark));*/
-    background-color: var(--web-dark);
+    background: var(--holo_dark);
 }
 nav img{
     height: 90%;
