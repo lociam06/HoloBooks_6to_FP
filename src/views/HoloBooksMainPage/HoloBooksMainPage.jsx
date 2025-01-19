@@ -13,7 +13,7 @@ function HoloBooksMainPage() {
             <header>
                 <CusNav />
             </header>
-            <main>
+            <main id="mainHoloBookPage">
                 <Banner />
                 <p id="page-label">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum veniam suscipit ipsum ducimus minima placeat quod, optio odit, eos, quo rerum quidem rem soluta aut dolorem reprehenderit distinctio magnam mollitia?, Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis corporis molestiae porro natus veniam repudiandae amet voluptatibus eaque illum mollitia? Itaque at repellat ut eius dolor iusto optio illum nisi.

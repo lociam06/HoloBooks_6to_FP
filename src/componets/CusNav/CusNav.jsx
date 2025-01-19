@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import "./CusNav.css"
 
-function CusNav(course){
+function CusNav(props){
     return(
         <nav>
             <div className="left-side">
@@ -8,12 +9,12 @@ function CusNav(course){
             </div>
             <div className="right-side">
                 <div className="buttons">
-                    <a href="#">Inicio</a>
-                    <a href="#">Cursos</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">FQA</a>
-                    <a href="#">Info</a>
-                    <a href="#">Perfil</a>
+                    <Link to="/">Inicio</Link>
+                    <Link to="#">Cursos</Link>
+                    <Link to="#">Contacto</Link>
+                    <Link to="#">FQA</Link>
+                    <Link to="#">Info</Link>
+                    <Link to="login-page">Perfil</Link>
                 </div>
             </div>
         </nav>

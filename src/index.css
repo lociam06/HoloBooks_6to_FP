@@ -1,41 +1,68 @@
 :root {
-  font-family: Cagliostro, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: Cagliostro, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
-  --web_dark: #D00000;
-  --web_mid: #E85D04;
-  --web_light: #FAA307;
+	--web_dark: #D00000;
+	--web_mid: #E85D04;
+	--web_light: #FAA307;
 
-  --holo_dark: #000000;
-  --holo_mid: #7F7F7F;
-  --holo_light: #D9D9D9;
+	--holo_dark: #000000;
+	--holo_mid: #7F7F7F;
+	--holo_light: #D9D9D9;
+}
+
+body {
+	margin: 0;
+	padding: 0;
 }
 
 /*-------------Fonts*/
 /*Cagliostro*/
 @font-face {
-  font-family: Cagliostro;
-  src: url(../public/Fonts/Cagliostro/Cagliostro-Regular.ttf);
-  font-weight: 400;
+	font-family: Cagliostro;
+	src: url(../public/Fonts/Cagliostro/Cagliostro-Regular.ttf);
+	font-weight: 400;
 }
+
 /*Cantarell*/
 @font-face {
-  font-family: Cantarell;
-  src: url(../public/Fonts/Cantarell/Cantarell-Regular.ttf);
-  font-weight: normal;
+	font-family: Cantarell;
+	src: url(../public/Fonts/Cantarell/Cantarell-Regular.ttf);
+	font-weight: normal;
 }
+
 @font-face {
-  font-family: Cantarell;
-  src: url(../public/Fonts/Cantarell/Cantarell-Bold.ttf);
-  font-weight: bold;
+	font-family: Cantarell;
+	src: url(../public/Fonts/Cantarell/Cantarell-Bold.ttf);
+	font-weight: bold;
 }
-body{
-  margin: 0;
-  padding: 0;
+
+/*Moul*/
+@font-face {
+	font-family: Moul;
+	src: url(../public/Fonts/Moul/Moul-Regular.ttf);
+	font-weight: normal;
+}
+
+/*utilities*/
+.position-fixed {
+	position: fixed;
+}
+
+.position-sticky {
+	position: sticky;
+}
+
+.display-none {
+	display: none;
+}
+
+.display-block {
+	display: block;
 }
