@@ -34,9 +34,9 @@ app.get("/login", (req, res) => {
 
 // Endpoint para login
 app.post("/login", (req, res) => {
-	const { email, password } = req.body;
+	const { LEmail, LPassword } = req.body;
 	// Buscar usuario en la base de datos
-	db.query('SELECT * FROM usuarios WHERE email = ?', [email], async (err, results) => {
+	db.query('SELECT * FROM usuarios WHERE email = ?', [LEmail], async (err, results) => {
 		if (err) {
 			console.log(err);
 			return res.status(500).send({ message: 'Error querying the database' });
@@ -50,7 +50,7 @@ app.post("/login", (req, res) => {
 		const user = results[0];
 
 		// Verificar contraseña
-		const isPasswordValid = await password == user.password;
+		const isPasswordValid = await LPassword == user.password;
 		if (!isPasswordValid) {
 			return res.status(401).send({ message: 'Invalid password' });
 		}
@@ -62,15 +62,18 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-	const { name, email, password } = req.body;
+	const { RName, REmail, RPassword } = req.body;
+	console.log(RName);
+	console.log(REmail);
+	console.log(RPassword);
 	// Buscar usuario en la base de datos
 	console.log(req.body);
-	db.query("INSERT INTO usuarios(tipo_usuario, nombre, email, password) VALUES('estudiante', ?, ?, ?)", [name, email, password], async (err, results) => {
+	db.query("INSERT INTO usuarios(tipo_usuario, nombre, email, password) VALUES('estudiante', ?, ?, ?)", [RName, REmail, RPassword], async (err, results) => {
 		if (err) {
 			console.log(err);
-			return res.status(500).send({ message: 'Error querying the database' });
+			return res.status(500).send({ message: err.code });
 		}
-
+		console.log("si: ", results);
 		res.status(201).send({ message: "User registered successfully" });
 		console.log("Registro exitoso");
 	});

@@ -14,7 +14,7 @@ function LoginPage() {
     //Register
     const [RName, setRName] = useState('');
     const [REmail, setREmail] = useState('');
-    const [Rpassword, setRPassword] = useState('');
+    const [RPassword, setRPassword] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -53,29 +53,35 @@ function LoginPage() {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        console.log("try Reg");
+        if(RName.trim() == "" || REmail.trim() == "" || RPassword.trim() == ""){
+            alert("Complete los campos");
+            return;
+        }
+        
         try {
-            // Realizar la solicitud HTTP con fetch
             const response = await fetch('http://localhost:5000/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({RName, REmail, Rpassword,}),
+                body: JSON.stringify({RName, REmail, RPassword,}),
             });
 
             // Verificar si la respuesta fue exitosa
-            console.log(response.ok);
             if (response.ok) {
                 // Redirigir al dashboard u otra página
-                console.log("Si dique");
-                navigate("/");
+                //navigate("/");
+                alert("registrado dique");
             } else {
                 const errorData = await response.json();
+                if(errorData.message == "ER_DUP_ENTRY") {
+                    alert("Ese usuario ya existe");
+                    return;
+                }
                 throw new Error(errorData.message || "Register failed");
             }
         } catch (err) {
-            setMessage(err.message);
+            alert(err.message);
         }
     };
     return (
@@ -103,7 +109,7 @@ function LoginPage() {
                             <div>
                                 <label htmlFor="passwordInput">Password</label>
                                 <input 
-                                    type="text" 
+                                    type="password" 
                                     name="passwordInput" 
                                     id="logPasswordInput" 
                                     placeholder="Password" 
@@ -128,7 +134,7 @@ function LoginPage() {
                             </div>
                             <div>
                                 <label htmlFor="passwordInput">Password</label>
-                                <input type="text" name="passwordInput" id="regPasswordInput" placeholder="Password" onChange={(e) => setRPassword(e.target.value)} required/>
+                                <input type="password" name="passwordInput" id="regPasswordInput" placeholder="Password" onChange={(e) => setRPassword(e.target.value)} required/>
                             </div>
                             <button type="submit" onClick={handleRegister}>Sing up</button>
                         </form>
@@ -164,8 +170,6 @@ function SwitchableElemnt() {
                 return "loginForm"
             }
         });
-        console.log(activeForm);
-
     }
     return (
         <div id="switchable" style={switchableStyles}>

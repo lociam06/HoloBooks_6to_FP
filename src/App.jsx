@@ -10,8 +10,8 @@ function App() {
 		<div className="Aplicacion">
 			<Routes>
 				<Route path="/" element={<HoloBooksMainPage />} />
-				<Route path="login-page" element={<LoginPage />} />
-				<Route path="faq-page" element={<FaqPage />} />
+				<Route path="/login-page" element={<LoginPage />} />
+				<Route path="/faq-page" element={<FaqPage />} />
 			</Routes>
 		</div>
 	);
