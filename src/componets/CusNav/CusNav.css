@@ -6,8 +6,8 @@ nav{
     justify-content: space-between;
     background: var(--holo_dark);
 }
-nav img{
-    height: 90%;
+nav a img{
+    height: 10%;
     padding: 10%;
     box-sizing: border-box;
 }

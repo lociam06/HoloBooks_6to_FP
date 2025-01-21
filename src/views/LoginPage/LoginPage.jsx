@@ -177,5 +177,3 @@ function SwitchableElemnt() {
 }
 
 export default LoginPage;
-
-//pinga
