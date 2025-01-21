@@ -6,11 +6,6 @@ nav{
     justify-content: space-between;
     background: var(--holo_dark);
 }
-nav a img{
-    height: 10%;
-    padding: 10%;
-    box-sizing: border-box;
-}
 
 nav .right-side{
     display: flex;
@@ -35,4 +30,13 @@ nav .left-side{
     align-items: center;
     margin-left: 1em;
     height: 100%;
+}
+nav .left-side a{
+    height: 100%;
+    box-sizing: border-box;
+}
+nav .left-side a img{
+    height: 100%;
+    padding: 1em;
+    box-sizing: border-box;
 }
