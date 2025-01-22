@@ -14,7 +14,7 @@ function CusNav(props){
                     <Link to="/">Inicio</Link>
                     <Link to="#">Cursos</Link>
                     <Link to="#">Contacto</Link>
-                    <Link to="faq-page">FQA</Link>
+                    <Link to="faq-page">FAQ</Link>
                     <Link to="#">Info</Link>
                     <Link to="login-page">Perfil</Link>
                 </div>

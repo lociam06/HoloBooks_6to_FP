@@ -10,8 +10,8 @@ import "../../App.css";
 function Question(props) {
     return (
         <div class="QA">
-            <h2>{props.question}</h2>
-            <p>{props.answer}</p>
+            <h2 class="question">{props.question}</h2>
+            <p class="answer">{props.answer}</p>
         </div>
     )
 }

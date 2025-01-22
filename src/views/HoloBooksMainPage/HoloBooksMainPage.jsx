@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CusNav from "../../componets/CusNav/CusNav.jsx";
 import CusFooter from "../../componets/CusFooter/CusFooter.jsx";
 import Banner from "../../componets/Banner/Banner.jsx"
+import { Link } from 'react-router-dom';
 
 import "./HoloBooksMainPage.css";
 import "../../App.css";
@@ -21,9 +22,9 @@ function HoloBooksMainPage() {
                 <section id="course-selection">
                     <h2>Explora nuestros cursos</h2>
                     <div id="courses-card-container">
-                        <CourseCard imgUrl="webBook_white.png" courseTitle="Desarrollo web" color="web"/>
-                        <CourseCard imgUrl="codeBook_white.png" courseTitle="Programacion" color="code"/>
-                        <CourseCard imgUrl="dbaseBook_white.png" courseTitle="Base de datos" color="dbase"/>
+                        <CourseCard imgUrl="webBook_white.png" courseTitle="Desarrollo web" color="web" course="web-index"/>
+                        <CourseCard imgUrl="codeBook_white.png" courseTitle="Programacion" color="code" course="code-index"/>
+                        <CourseCard imgUrl="dbaseBook_white.png" courseTitle="Base de datos" color="dbase" course="dbase-index"/>
                     </div>
                     <button id="go-to-courses-btn">Ir a los cursos</button>
                 </section>
@@ -48,7 +49,9 @@ function CourseCard(props) {
             <div className="card" style={style}>
                 <img src={"../../../public/icons/" + props.imgUrl} alt="logoDelCurso" />
                 <div className="go-btn">
-                    {<button style={btnStyle}>Ir</button>}
+                    <Link to={props.course}>
+                        {<button style={btnStyle}>Ir</button>}
+                    </Link>
                 </div>
             </div>
         </div>
