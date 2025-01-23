@@ -10,7 +10,7 @@ function CourseCreationPage(){
             <div id="courseSelectionContainer">
                 <Link to="/course-creation-page/courses">Cursos</Link>
                 <Link to="/course-creation-page/levels">Niveles</Link>
-                <Link to="/course-creation-page/lessons">Lesione</Link>
+                <Link to="/course-creation-page/lessons">Lecciones</Link>
             </div>
         </>
     )

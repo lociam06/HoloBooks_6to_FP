@@ -47,15 +47,15 @@ function CreateLevelForm(){
                     </div>
                     <div>
                         <label htmlFor="levelCursoID">Curso_ID</label>
-                        <input type="number" id="levelCursoID" name="levelCursoID" value={cursoID} onChange={(e) => setCursoID(e.target.value)}/>
+                        <input type="number" id="levelCursoID" name="levelCursoID" min="1" value={cursoID} onChange={(e) => setCursoID(e.target.value)}/>
                     </div>
                     <div>
                         <label htmlFor="levelOrden">Orden</label>
-                        <input type="number" id="levelOrden" name="levelOrden" value={orden} onChange={(e) => setOrden(e.target.value)}/>
+                        <input type="number" id="levelOrden" name="levelOrden" min="1" value={orden} onChange={(e) => setOrden(e.target.value)}/>
                     </div>
                     <div>
                         <label htmlFor="levelDuracion">Duracion</label>
-                        <input type="number" id="levelDuracion" name="levelDuracion" value={duracion} onChange={(e) => setDuracion(e.target.value)}/>
+                        <input type="number" id="levelDuracion" name="levelDuracion" min="1" value={duracion} onChange={(e) => setDuracion(e.target.value)}/>
                     </div>
                     <button className="agregar-btn" type="submit" onClick={handleAddReg}>Agregar</button>
                 </form>

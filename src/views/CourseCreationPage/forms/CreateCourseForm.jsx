@@ -50,7 +50,7 @@ function CourseCreationPage(){
                     </div>
                     <div>
                         <label htmlFor="courseDuracion">Duracion</label>
-                        <input type="number" id="courseDuracion" name="courseDuracion" value={duracion} onChange={(e) => setDuracion(e.target.value)}/>
+                        <input type="number" id="courseDuracion" name="courseDuracion" min="1" value={duracion} onChange={(e) => setDuracion(e.target.value)}/>
                     </div>
                     <button className="agregar-btn" type="submit" onClick={handleAddReg}>Agregar</button>
                 </form>

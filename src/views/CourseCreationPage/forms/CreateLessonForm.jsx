@@ -37,15 +37,15 @@ function CreateLessonForm(){
         <>
             <CusNav></CusNav>
             <main className="creationFormContainer">
-            <h1 className="form-title">Lesiones</h1>
+            <h1 className="form-title">Lecciones</h1>
                 <form action="/add/lesson">
                     <div>
                         <label htmlFor="lessonNivel_ID">Nivel_ID</label>
-                        <input type="number" id="lessonNivel_ID" name="lessonNivel_ID" value={nivelID} onChange={(e) => setNivelID(e.target.value)}/>
+                        <input type="number" id="lessonNivel_ID" name="lessonNivel_ID" min="1" value={nivelID} onChange={(e) => setNivelID(e.target.value)}/>
                     </div>
                     <div>
                         <label htmlFor="lessionOrden">Orden</label>
-                        <input type="number" id="lessionOrden" name="lessionOrden" value={orden} onChange={(e) => setOrden(e.target.value)}/>
+                        <input type="number" id="lessionOrden" name="lessionOrden" min="1" value={orden} onChange={(e) => setOrden(e.target.value)}/>
                     </div>
                     <div>
                         <label htmlFor="lessonContenido">Contenido</label>
