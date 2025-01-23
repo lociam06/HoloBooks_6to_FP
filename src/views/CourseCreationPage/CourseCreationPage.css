@@ -1,0 +1,14 @@
+#courseSelectionContainer{
+    display: flex;
+    height: 80vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#courseSelectionContainer a{
+    text-decoration: none;
+    padding: 3em;
+    background-color: var(--holo_dark);
+    color: #FFF;
+    border-radius: 20px;
+}

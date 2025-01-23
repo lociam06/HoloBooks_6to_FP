@@ -1,0 +1,46 @@
+.creationFormContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-title{
+    text-align: center;
+    margin: 0;
+}
+
+.creationFormContainer form{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--holo_dark);
+    color: #FFF;
+    padding: 3em;
+    width: 25%;
+    gap: 2em;
+    border-radius: 20px;
+}
+
+.creationFormContainer form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.creationFormContainer form input{
+    padding: 0.5em;
+    font-family: Cantarell;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.creationFormContainer form .agregar-btn{
+    padding: 0.5em;
+    font-family: Cantarell;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: var(--holo_mid);
+}

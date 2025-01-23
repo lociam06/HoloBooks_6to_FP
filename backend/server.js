@@ -63,9 +63,6 @@ app.post("/login", (req, res) => {
 
 app.post("/register", (req, res) => {
 	const { RName, REmail, RPassword } = req.body;
-	console.log(RName);
-	console.log(REmail);
-	console.log(RPassword);
 	// Buscar usuario en la base de datos
 	console.log(req.body);
 	db.query("INSERT INTO usuarios(tipo_usuario, nombre, email, password) VALUES('estudiante', ?, ?, ?)", [RName, REmail, RPassword], async (err, results) => {
@@ -83,4 +80,39 @@ app.post("/register", (req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`);
+});
+
+
+//-----------------------------Keily isn't the best
+app.post("/add/course", (req, res) => {
+	const { titulo, descripcion, duracion } = req.body;
+	// Buscar usuario en la base de datos
+	db.query("INSERT INTO cursos(titulo, descripcion, duracion) VALUES(?, ?, ?)", [titulo, descripcion, duracion], async (err, results) => {
+		if (err) {
+			return res.status(500).send({ message: err.code });
+		}
+		res.status(201).send({ message: "registered successfully" });
+	});
+});
+
+app.post("/add/level", (req, res) => {
+	const { titulo, cursoID, orden, duracion } = req.body;
+	// Buscar usuario en la base de datos
+	db.query("INSERT INTO niveles(titulo, curso_id, orden, duracion) VALUES(?, ?, ?, ?)", [titulo, cursoID, orden, duracion], async (err, results) => {
+		if (err) {
+			return res.status(500).send({ message: err.code });
+		}
+		res.status(201).send({ message: "registered successfully" });
+	});
+});
+
+app.post("/add/lesson", (req, res) => {
+	const { nivelID, orden, contenido } = req.body;
+	// Buscar usuario en la base de datos
+	db.query("INSERT INTO lecciones(nivel_id, orden, contenido) VALUES(?, ?, ?)", [nivelID, orden, contenido], async (err, results) => {
+		if (err) {
+			return res.status(500).send({ message: err.code });
+		}
+		res.status(201).send({ message: "registered successfully" });
+	});
 });
