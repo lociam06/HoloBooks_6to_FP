@@ -5,33 +5,31 @@ import "./formsStyles.css";
 function CourseCreationPage(){
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    const [duracion, setDuracion] = useState('');    
+    const [duracion, setDuracion] = useState(1);    
 
     const handleAddReg = async (e) => {
         e.preventDefault();
-        
-        try {
-            const response = await fetch('http://localhost:5000/add/course', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({titulo, descripcion, duracion}),
-            });
-
-            if (response.ok) {
-                alert("registrado dique");
-            } else {
-                const errorData = await response.json();
-                if(errorData.message == "ER_DUP_ENTRY") {
-                    alert("Ese usuario ya existe");
-                    return;
+        if(!(titulo.trim() == "" || descripcion.trim() == "" || duracion > 1)){
+            try {
+                const response = await fetch('http://localhost:5000/add/course', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({titulo, descripcion, duracion}),
+                });
+    
+                if (response.ok) {
+                    alert("Registrado");
+                } else {
+                    const errorData = await response.json();
+                    alert("Ha ocurrido un error: " + errorData.message);
                 }
-                throw new Error(errorData.message || "Register failed");
+            } catch (err) {
+                alert(err.message);
             }
-        } catch (err) {
-            alert(err.message);
         }
+        else alert("Llene los campos con el valor correcto");
     }
 
     return(

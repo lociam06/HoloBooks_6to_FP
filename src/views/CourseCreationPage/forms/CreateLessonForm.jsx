@@ -3,35 +3,35 @@ import CusNav from "../../../componets/CusNav/CusNav";
 import "./formsStyles.css";
 
 function CreateLessonForm(){
-    const [nivelID, setNivelID] = useState('');
-    const [orden, setOrden] = useState('');
-    const [contenido, setContenido] = useState('');    
+    const [nivelID, setNivelID] = useState(1);
+    const [orden, setOrden] = useState(1);
+    const [contenido, setContenido] = useState("");    
 
     const handleAddReg = async (e) => {
         e.preventDefault();
         
-        try {
-            const response = await fetch('http://localhost:5000/add/lesson', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({nivelID, orden, contenido}),
-            });
-
-            if (response.ok) {
-                alert("registrado dique");
-            } else {
-                const errorData = await response.json();
-                if(errorData.message == "ER_DUP_ENTRY") {
-                    alert("Ese usuario ya existe");
-                    return;
+        if(!(nivelID < 1 || orden < 1 || contenido == "")){
+            try {
+                const response = await fetch('http://localhost:5000/add/lesson', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({nivelID, orden, contenido}),
+                });
+    
+                if (response.ok) {
+                    alert("Registrado");
+                } else {
+                    const errorData = await response.json();
+                    alert("Ha ocurrido un error: " + errorData.message);
                 }
-                throw new Error(errorData.message || "Register failed");
+            } catch (err) {
+                alert(err.message);
             }
-        } catch (err) {
-            alert(err.message);
         }
+        else alert("Llene los campos con el valor correcto");
+        
     };
     return(
         <>
