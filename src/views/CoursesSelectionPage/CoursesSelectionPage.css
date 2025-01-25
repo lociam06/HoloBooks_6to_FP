@@ -1,0 +1,51 @@
+#courses-selection-container #course-cards-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    gap: 3em;
+    margin-bottom: 4em;
+}
+
+#courses-selection-container h1{
+    text-align: center;
+    font-size: 2em;
+    font-family: Cantarell;
+    font-weight: bold;
+    margin: 1.2em;
+}
+
+#courses-selection-container #course-cards-container .course-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    padding: 2.5em;
+    border-radius: 25px;
+    gap: 4em;
+}
+
+#courses-selection-container #course-cards-container .course-card .img-container img{
+    width: 20em;
+}
+
+#courses-selection-container #course-cards-container .course-card .content{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFF;
+    font-size: 1.5em;
+}
+
+#courses-selection-container #course-cards-container .course-card .content button{
+    color: #FFF;
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    background-color: transparent;
+    padding: 0.8em;
+    width: 40%;
+    font-size: 1.1rem;
+    font-family: Cantarell;
+    font-weight: bold;
+}

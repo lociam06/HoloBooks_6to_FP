@@ -12,7 +12,8 @@ function CusNav(props){
             <div className="right-side">
                 <div className="buttons">
                     <Link to="/">Inicio</Link>
-                    <Link to="/course-creation-page">Cursos</Link>
+                    <Link to="/course-creation-page">Cursos+</Link>
+                    <Link to="/course-selection-page">Cursos</Link>
                     <Link to="#">Contacto</Link>
                     <Link to="/faq-page">FQA</Link>
                     <Link to="#">Info</Link>

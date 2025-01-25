@@ -1,5 +1,7 @@
+//libraries
 import { Routes, Route } from "react-router-dom"
-import { useState } from 'react';
+
+//view
 import HoloBooksMainPage from "./views/HoloBooksMainPage/HoloBooksMainPage.jsx";
 import LoginPage from "./views/LoginPage/LoginPage.jsx";
 import FaqPage from "./views/FaqPage/FaqPage.jsx";
@@ -10,6 +12,9 @@ import CreateLessonForm from "./views/CourseCreationPage/forms/CreateLessonForm.
 import WebIndex from "./views/WebIndex/WebIndex.jsx";
 import CodeIndex from "./views/CodeIndex/CodeIndex.jsx";
 import DbaseIndex from "./views/DbaseIndex/DbaseIndex.jsx";
+import CoursesSelectionPage from "./views/CoursesSelectionPage/CoursesSelectionPage.jsx";
+
+//styles
 import './App.css';
 
 function App() {
@@ -28,6 +33,8 @@ function App() {
 				<Route path="web-index" element={<WebIndex />} />
 				<Route path="code-index" element={<CodeIndex />} />
 				<Route path="dbase-index" element={<DbaseIndex />} />
+
+				<Route path="/course-selection-page" element={<CoursesSelectionPage />}></Route>
 			</Routes>
 		</div>
 	);
