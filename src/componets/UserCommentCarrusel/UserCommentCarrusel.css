@@ -1,0 +1,56 @@
+/*----------User testimonelas section*/
+.user-testimonials{
+    background-color: #EEE;
+    padding: 2rem 4rem;
+}
+/*title*/
+.user-testimonials .user-testimonials-title{
+    margin: 0;
+    margin-top: 0.5em;
+    margin-bottom: 1.3em;
+    text-align: center;
+    font-size: 2em;
+    font-family: Cantarell;
+    font-weight: bold;
+}
+/*carrusel*/
+.user-testimonials .carousel{
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+}
+.user-testimonials .carousel button{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    border: none;
+    width: 3vw;
+    font-size: 2rem;
+}
+/*comments container*/
+.user-testimonials .carousel .carousel-comment-container{
+    display: flex;
+    overflow: hidden;
+}
+.user-testimonials .carousel .carousel-comment-container .comments{
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+    transition: transform 500ms;
+}
+.user-testimonials .carousel .carousel-comment-container .user-comment{
+    background-color: #FFF;
+    width: 38rem;
+    border-radius: 20px;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.user-testimonials .carousel .carousel-comment-container .user-comment .user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.user-testimonials .carousel .carousel-comment-container .user-comment .user img{
+    width: 4rem;
+}

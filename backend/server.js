@@ -7,22 +7,14 @@ import connection from "./conectionDB.js";
 const db = connection;
 import {} from "dotenv/config";
 
-//const express = require("express");
-//const cors = require('cors');
-//const bodyParser = require('body-parser');
-//const bcrypt = require('bcrypt');
-//const jwt = require('jsonwebtoken');
-//const db = require('./conectionDB.js');
-//require('dotenv').config();
-
 const app = express();
 
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 
-// Secret for JWT
-const SECRET_KEY = process.env.SECRET_KEY || 'mysecretkey';
+/*// Secret for JWT
+const SECRET_KEY = process.env.SECRET_KEY || 'mysecretkey';*/
 
 app.get("/", (req, res) => {
 	res.send("Servidor funcionando");
@@ -41,7 +33,6 @@ app.post("/login", (req, res) => {
 			console.log(err);
 			return res.status(500).send({ message: 'Error querying the database' });
 		}
-
 		if (results.length === 0) {
 			console.log("Usuario no encontrado");
 			return res.status(401).send({ message: 'User not found' });
@@ -50,12 +41,10 @@ app.post("/login", (req, res) => {
 		const user = results[0];
 
 		// Verificar contraseña
-		const isPasswordValid = await LPassword == user.password;
+		const isPasswordValid = LPassword == user.password;
 		if (!isPasswordValid) {
 			return res.status(401).send({ message: 'Invalid password' });
 		}
-
-		console.log("Inicio");
 		// Generar token
 		res.send({ message: 'Login successful'});
 	});

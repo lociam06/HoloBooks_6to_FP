@@ -10,7 +10,7 @@ import "../../App.css";
 function WebIndex() {
     return (
         <>
-            <CourseSelector />
+            {/*<CourseSelector />*/}
         </>
     )
 }

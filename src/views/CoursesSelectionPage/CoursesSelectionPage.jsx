@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./CoursesSelectionPage.css"
 import CusNav from "../../componets/CusNav/CusNav.jsx"
 import CusFooter from "../../componets/CusFooter/CusFooter.jsx"
@@ -25,6 +26,12 @@ function CoursesSelectionPage(){
 
 function CourseCard(props){
 
+    const navigate = useNavigate();
+
+    const goToPage = () =>{
+        navigate(`/course-page/${props.color}`);
+    }
+
     let style = {backgroundImage: `linear-gradient(280deg, var(--${props.color}_dark) , var(--${props.color}_mid) , var(--${props.color}_light))`}
     if(props.reverse) style["flexDirection"] = "row-reverse";
     
@@ -35,7 +42,7 @@ function CourseCard(props){
             </div>
             <div className="content">
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                <button>Ver mas</button>
+                <button onClick={goToPage}>Ver mas</button>
             </div>
         </div>
     )

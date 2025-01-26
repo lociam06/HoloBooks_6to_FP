@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
 import CusNav from "../../componets/CusNav/CusNav.jsx";
-import CusFooter from "../../componets/CusFooter/CusFooter.jsx";
 import Banner from "../../componets/Banner/Banner.jsx"
+import CusFooter from "../../componets/CusFooter/CusFooter.jsx";
+import { UserCommentCarrusel, UserComment } from '../../componets/UserCommentCarrusel/UserCommentCarrusel.jsx';
 import { Link } from 'react-router-dom';
 
 import "./HoloBooksMainPage.css";
-import "../../App.css";
 
 function HoloBooksMainPage() {
+    const comments = [
+        <UserComment key="1" userAvatar="whitoutAvatarPhoto.png" userName="User Example1" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+        <UserComment key="2" userAvatar="whitoutAvatarPhoto.png" userName="User Example2" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+        <UserComment key="3" userAvatar="whitoutAvatarPhoto.png" userName="User Example3" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+        <UserComment key="4" userAvatar="whitoutAvatarPhoto.png" userName="User Example4" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+    ];
     return (
         <>
             <header>
@@ -29,9 +35,9 @@ function HoloBooksMainPage() {
                     <button id="go-to-courses-btn">Ir a los cursos</button>
                 </section>
 
-                <section id="user-testimonials">
-                    <h1 id="user-testimonials-title">Testimonios de nuestros usuarios</h1>
-                    <UserCommentCarrusel />
+                <section className="user-testimonials">
+                    <h1 className="user-testimonials-title">Testimonios de nuestros usuarios</h1>
+                    <UserCommentCarrusel comments={comments}/>
                 </section>
 
             </main>
@@ -56,52 +62,5 @@ function CourseCard(props) {
             </div>
         </div>
     )
-}
-
-function UserComment(props) {
-    return (
-        <div className="user-comment">
-            <div className="user">
-                <img src={props.userAvatar} alt="avatar" className="avatar" />
-                <span className="userName">{props.userName}</span>
-            </div>
-            <p className="comment">{props.comment}</p>
-        </div>
-    )
-}
-
-function UserCommentCarrusel() {
-    const comments = [
-        <UserComment key="1" userAvatar="../../../icons/whitoutAvatarPhoto.png" userName="User Example1" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
-        <UserComment key="2" userAvatar="../../../icons/whitoutAvatarPhoto.png" userName="User Example2" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
-        <UserComment key="3" userAvatar="../../../icons/whitoutAvatarPhoto.png" userName="User Example3" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
-        <UserComment key="4" userAvatar="../../../icons/whitoutAvatarPhoto.png" userName="User Example4" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
-    ]
-    const [actualIndex, setActualIndex] = useState(0);
-    let styles = {transform: `translateX(${actualIndex * (-34)}em)`,}
-
-    const prevComment = () => {
-        setActualIndex((prevIndex) => prevIndex == 0 ? comments.length - 2 : prevIndex - 1);
-    }
-
-    const nextComment = () => {
-        setActualIndex((prevIndex) => prevIndex == comments.length - 2 ? 0 : prevIndex + 1);
-    }
-    
-    return (
-        <div id="carousel">
-            <button className="carousel-button prev" onClick={prevComment}>
-                ◀
-            </button>
-            <div id="carousel-comment-container">
-                <div id="comments" style={styles}>
-                    {comments}
-                </div>
-            </div>
-            <button className="carousel-button next" onClick={nextComment}>
-                ▶
-            </button>
-        </div>
-    );
 }
 export default HoloBooksMainPage;

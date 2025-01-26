@@ -4,7 +4,6 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--holo_dark);
 }
 
 nav .right-side{

@@ -1,8 +1,11 @@
 import "./CusFooter.css";
 
-function CusFooter(){
+function CusFooter(props){
+    let styles;
+    if(props.color) styles = {background: `var(--${props.color}_mid)`}
+    else styles = {background: `var(--holo_dark)`}
     return(
-        <footer>
+        <footer style={styles}>
             <div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing
             </div>

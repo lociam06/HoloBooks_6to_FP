@@ -1,0 +1,69 @@
+
+/*page label*/
+#coursePage .page-label{
+    display: flex;
+    padding: 2em 10em;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+    font-size: 1.2rem;
+}
+
+/*page description*/
+#coursePage .page-description{
+    display: flex;
+    padding: 2em 10em;
+    font-size: 1.2rem;
+    gap: 3em;
+    position: relative;
+}
+#coursePage .page-description .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFF;
+    gap: 1rem;
+}
+#coursePage .page-description .content button{
+    border: 3px solid #FFF;
+    color: #FFF;
+    border-radius: 40px;
+    background-color: transparent;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+}
+
+#coursePage .registered-users{
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+#coursePage .registered-users .num-of-users{
+    font-size: 5rem;
+    font-family: Cantarell;
+    font-weight: bold;
+
+    background-clip: text;
+    font-weight: bold; /* Peso de la fuente */
+    -webkit-background-clip: text; /* Recortar el fondo al texto */
+    -webkit-text-fill-color: transparent;
+}
+#coursePage .registered-users .label{
+    font-size: 2rem;
+    width: 50%;
+    text-align: center;
+}
+
+
+
+#coursePage .page-description img, #coursePage .page-label img{
+    width: 30rem;
+    object-fit: cover;
+}

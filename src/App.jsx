@@ -13,6 +13,7 @@ import WebIndex from "./views/WebIndex/WebIndex.jsx";
 import CodeIndex from "./views/CodeIndex/CodeIndex.jsx";
 import DbaseIndex from "./views/DbaseIndex/DbaseIndex.jsx";
 import CoursesSelectionPage from "./views/CoursesSelectionPage/CoursesSelectionPage.jsx";
+import CoursePage from "./views/CoursePage/CoursePage.jsx";
 
 //styles
 import './App.css';
@@ -34,6 +35,10 @@ function App() {
 				<Route path="code-index" element={<CodeIndex />} />
 				<Route path="dbase-index" element={<DbaseIndex />} />
 
+				<Route path="/course-page/web" element={<CoursePage course="web"/>}></Route>
+				<Route path="/course-page/code" element={<CoursePage course="code"/>}></Route>
+				<Route path="/course-page/dbase" element={<CoursePage course="dbase"/>}></Route>
+				
 				<Route path="/course-selection-page" element={<CoursesSelectionPage />}></Route>
 			</Routes>
 		</div>
