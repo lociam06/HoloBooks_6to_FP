@@ -13,8 +13,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-/*// Secret for JWT
-const SECRET_KEY = process.env.SECRET_KEY || 'mysecretkey';*/
+const SECRET_KEY = process.env.SECRET_KEY || 'mysecretkey';
 
 app.get("/", (req, res) => {
 	res.send("Servidor funcionando");
@@ -70,6 +69,8 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
 
 
 //-----------------------------Keily isn't the best

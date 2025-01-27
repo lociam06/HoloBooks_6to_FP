@@ -35,9 +35,9 @@ function App() {
 				<Route path="code-index" element={<CodeIndex />} />
 				<Route path="dbase-index" element={<DbaseIndex />} />
 
-				<Route path="/course-page/web" element={<CoursePage course="web"/>}></Route>
-				<Route path="/course-page/code" element={<CoursePage course="code"/>}></Route>
-				<Route path="/course-page/dbase" element={<CoursePage course="dbase"/>}></Route>
+				<Route path="/course-page/web" element={<CoursePage key="1" course="web"/>}></Route>
+				<Route path="/course-page/code" element={<CoursePage key="2" course="code"/>}></Route>
+				<Route path="/course-page/dbase" element={<CoursePage key="3" course="dbase"/>}></Route>
 				
 				<Route path="/course-selection-page" element={<CoursesSelectionPage />}></Route>
 			</Routes>

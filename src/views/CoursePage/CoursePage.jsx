@@ -6,10 +6,11 @@ import CusFooter from "../../componets/CusFooter/CusFooter";
 import { UserCommentCarrusel, UserComment } from "../../componets/UserCommentCarrusel/UserCommentCarrusel";
 
 import "./CoursePage.css";
-let pageData;
 
 function CoursePage(props){
+    let pageData;
     pageData = CoursesPageDatas.find(course => course.page = props.course);
+    console.log(pageData);
 
     let comments = [];
     pageData.userTestimony.forEach(comment => {
