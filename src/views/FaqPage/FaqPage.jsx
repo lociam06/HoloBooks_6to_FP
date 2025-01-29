@@ -32,6 +32,9 @@ function FaqPage() {
                 <Question key="4" question="Esta melodia esta que arde?" answer="Se siente sola" />
                 </div>
             </main>
+            <footer>
+                <CusFooter />
+            </footer>
         </>
     )
 }

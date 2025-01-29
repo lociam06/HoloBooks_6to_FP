@@ -4,6 +4,7 @@ import CusNav from "../../componets/CusNav/CusNav";
 import Banner from "../../componets/Banner/Banner";
 import CusFooter from "../../componets/CusFooter/CusFooter";
 import { UserCommentCarrusel, UserComment } from "../../componets/UserCommentCarrusel/UserCommentCarrusel";
+import { Link } from "react-router-dom";
 
 import "./CoursePage.css";
 
@@ -30,7 +31,9 @@ function CoursePage(props){
                 <div className="page-description" style={{background: `var(--${pageData.page}_mid)`}}>
                     <div className="content">
                         <p>{pageData.courseDescription}</p>
-                        <button>Ir al curso</button>
+                        <Link to="course-selector">
+                            <button>Ir al curso</button>
+                        </Link>
                     </div>
                     <img src={"../../../public/icons/" + pageData.page + "Book_white.png"} alt="Imagen alusiva" />
                 </div>

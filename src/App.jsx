@@ -9,11 +9,11 @@ import CourseCreationPage from "./views/CourseCreationPage/CourseCreationPage.js
 import CreateCourseForm from "./views/CourseCreationPage/forms/CreateCourseForm.jsx";
 import CreateLevelForm from "./views/CourseCreationPage/forms/CreateLevelForm.jsx";
 import CreateLessonForm from "./views/CourseCreationPage/forms/CreateLessonForm.jsx";
-import WebIndex from "./views/WebIndex/WebIndex.jsx";
-import CodeIndex from "./views/CodeIndex/CodeIndex.jsx";
-import DbaseIndex from "./views/DbaseIndex/DbaseIndex.jsx";
 import CoursesSelectionPage from "./views/CoursesSelectionPage/CoursesSelectionPage.jsx";
+import CourseSelector from "./componets/CourseComponents/CourseSelector/CourseSelector.jsx"
 import CoursePage from "./views/CoursePage/CoursePage.jsx";
+
+//
 
 //styles
 import './App.css';
@@ -30,10 +30,7 @@ function App() {
 				<Route path="/course-creation-page/courses" element={<CreateCourseForm />} />
 				<Route path="/course-creation-page/levels" element={<CreateLevelForm />} />
 				<Route path="/course-creation-page/lessons" element={<CreateLessonForm />} />
-
-				<Route path="web-index" element={<WebIndex />} />
-				<Route path="code-index" element={<CodeIndex />} />
-				<Route path="dbase-index" element={<DbaseIndex />} />
+				<Route path="/course-selector" element={<CourseSelector />} />
 
 				<Route path="/course-page/web" element={<CoursePage key="1" course="web"/>}></Route>
 				<Route path="/course-page/code" element={<CoursePage key="2" course="code"/>}></Route>
