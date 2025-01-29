@@ -44,3 +44,12 @@
     border: none;
     background-color: var(--holo_mid);
 }
+
+.creationFormContainer form select{
+    padding: 0.5em;
+    font-family: Cantarell;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #FFF;
+}

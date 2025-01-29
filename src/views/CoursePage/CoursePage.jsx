@@ -9,7 +9,7 @@ import "./CoursePage.css";
 
 function CoursePage(props){
     let pageData;
-    pageData = CoursesPageDatas.find(course => course.page = props.course);
+    pageData = CoursesPageDatas.find(course => course.page == props.course);
     console.log(pageData);
 
     let comments = [];
