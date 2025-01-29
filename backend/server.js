@@ -90,6 +90,7 @@ app.post("/add/level", (req, res) => {
 	// Buscar usuario en la base de datos
 	db.query("INSERT INTO niveles(titulo, curso_id, orden, duracion) VALUES(?, ?, ?, ?)", [titulo, cursoID, orden, duracion], async (err, results) => {
 		if (err) {
+			console.log({ titulo, cursoID, orden, duracion });
 			return res.status(500).send({ message: err.code });
 		}
 		res.status(201).send({ message: "registered successfully" });
@@ -105,4 +106,31 @@ app.post("/add/lesson", (req, res) => {
 		}
 		res.status(201).send({ message: "registered successfully" });
 	});
+});
+
+//gets
+app.get("/get/course", (req, res) => {
+	// Buscar los cursos
+	db.query("Select curso_id, titulo from cursos",async (err, results) => {
+		if (err) {
+			return res.status(500).send({ message: err.code });
+		}
+
+		// Si no hay errores, devuelve los resultados de la consulta
+		return res.status(200).json(results);
+	});
+
+});
+
+app.get("/get/levels", (req, res) => {
+	// Buscar los cursos
+	db.query("Select nivel_id, curso_id, titulo from niveles",async (err, results) => {
+		if (err) {
+			return res.status(500).send({ message: err.code });
+		}
+
+		// Si no hay errores, devuelve los resultados de la consulta
+		return res.status(200).json(results);
+	});
+
 });
