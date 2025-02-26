@@ -9,7 +9,7 @@ function CourseCreationPage(){
 
     const handleAddReg = async (e) => {
         e.preventDefault();
-        if(!(titulo.trim() == "" || descripcion.trim() == "" || duracion > 1)){
+        if(!(titulo.trim() == "" || descripcion.trim() == "" || duracion < 1)){
             try {
                 const response = await fetch('http://localhost:5000/add/course', {
                     method: 'POST',
