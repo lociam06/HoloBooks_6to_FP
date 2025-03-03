@@ -1,9 +1,11 @@
 nav{
-    position: sticky;
+    top: 0;
+    position: fixed;
     height: 6em;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 nav .right-side{

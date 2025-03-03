@@ -4,14 +4,14 @@ import CusNav from "../../componets/CusNav/CusNav";
 import Banner from "../../componets/Banner/Banner";
 import CusFooter from "../../componets/CusFooter/CusFooter";
 import { UserCommentCarrusel, UserComment } from "../../componets/UserCommentCarrusel/UserCommentCarrusel";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./CoursePage.css";
 
 function CoursePage(props){
+    const { filialName } = useParams();
     let pageData;
-    pageData = CoursesPageDatas.find(course => course.page == props.course);
-    console.log(pageData);
+    pageData = CoursesPageDatas.find(course => course.page == filialName);
 
     let comments = [];
     pageData.userTestimony.forEach(comment => {

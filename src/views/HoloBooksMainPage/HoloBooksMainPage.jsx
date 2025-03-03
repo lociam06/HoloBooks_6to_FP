@@ -5,6 +5,7 @@ import Banner from "../../componets/Banner/Banner.jsx"
 import CusFooter from "../../componets/CusFooter/CusFooter.jsx";
 import { UserCommentCarrusel, UserComment } from '../../componets/UserCommentCarrusel/UserCommentCarrusel.jsx';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import "./HoloBooksMainPage.css";
 
@@ -52,13 +53,18 @@ function HoloBooksMainPage() {
 function CourseCard(props) {
     let style = {backgroundImage: `linear-gradient(to bottom, var(--${props.color}_dark) , var(--${props.color}_mid) , var(--${props.color}_light))`}
     let btnStyle = {background: `var(--${props.color}_mid)`}
+    let navigate = useNavigate();
+    const handleGoBtn = () => {
+        window.scrollTo(0, 0);
+        navigate("/course-page/" + props.color);
+    }
     return (
         <div className="course-card">
             <h2 className="title">{props.courseTitle}</h2>
             <div className="card" style={style}>
                 <img src={"../../../public/icons/" + props.imgUrl} alt="logoDelCurso" />
                 <div className="go-btn">
-                        {<button style={btnStyle}>Ir</button>}
+                        {<button style={btnStyle} onClick={() => handleGoBtn()}>Ir</button>}
                 </div>
             </div>
         </div>

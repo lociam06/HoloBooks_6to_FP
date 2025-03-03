@@ -52,7 +52,6 @@ app.post("/login", (req, res) => {
 app.post("/register", (req, res) => {
 	const { RName, REmail, RPassword } = req.body;
 	// Buscar usuario en la base de datos
-	console.log(req.body);
 	db.query("INSERT INTO usuarios(tipo_usuario, nombre, email, password) VALUES('estudiante', ?, ?, ?)", [RName, REmail, RPassword], async (err, results) => {
 		if (err) {
 			console.log(err);
@@ -69,6 +68,48 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`);
 });
+
+//Para el fetch de los cursos
+app.get("/courses", (req, res) => {
+	const { filial } = req.query;
+
+	if(!filial){
+		return res.status(400).json({ error: "Falta el parámetro 'filial'" });
+	}
+
+	if(filial){
+		db.query("SELECT * FROM cursos WHERE filial = ?", [filial], async (err, results) => {
+			if(err){
+				res.status(500).json({ error: "Error al obtener los cursos" });
+			}else{
+				res.send(results);
+			}
+		});
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,7 +131,6 @@ app.post("/add/level", (req, res) => {
 	// Buscar usuario en la base de datos
 	db.query("INSERT INTO niveles(titulo, curso_id, orden, duracion) VALUES(?, ?, ?, ?)", [titulo, cursoID, orden, duracion], async (err, results) => {
 		if (err) {
-			console.log({ titulo, cursoID, orden, duracion });
 			return res.status(500).send({ message: err.code });
 		}
 		res.status(201).send({ message: "registered successfully" });

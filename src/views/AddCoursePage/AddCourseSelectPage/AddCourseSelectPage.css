@@ -1,0 +1,13 @@
+
+#AddCourseSelectPage_main #courses_container{
+    display: flex;
+    margin: 5em;
+    gap: 3em;
+    justify-content: center;
+}
+
+#AddCourseSelectPage_main #courses_container .course{
+    background-color: #AAA;
+    width: 20%;
+    aspect-ratio: 1 / 1;
+}

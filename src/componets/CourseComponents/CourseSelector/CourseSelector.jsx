@@ -2,7 +2,7 @@ import React from 'react';
 
 import CusNav from "../..//CusNav/CusNav.jsx";
 import CusFooter from "../..//CusFooter/CusFooter.jsx";
-import CoursesPageDatas from "/CoursePageDatas";
+//import CoursesPageDatas from "/CoursePageDatas";
 
 import "./CourseSelector.css";
 

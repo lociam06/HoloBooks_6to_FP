@@ -1,0 +1,45 @@
+#addCoursePage_container{
+    background-color: var(--holo_dark);
+    height: 100vh;
+    padding-top: 3em;
+    box-sizing: border-box;
+}
+
+#addCoursePage_container .title{
+    color: #FFF;
+    margin: 0;
+    text-align: center;
+}
+
+#addCoursePage_container .courses{
+    display: flex;
+    justify-content: space-around;
+    gap: 5rem;
+    margin: 0 5rem;
+    margin-top: 5rem;
+}
+
+#addCoursePage_container .courses .course{
+    width: 28rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+#addCoursePage_container .courses .course .title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#addCoursePage_container .courses .course .img_cont{
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+#addCoursePage_container .courses .course .img_cont img{
+    width: 80%;
+}
