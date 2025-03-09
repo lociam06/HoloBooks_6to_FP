@@ -1,0 +1,29 @@
+#CourseLevelDevPage main aside{
+    display: flex;
+    flex-direction: column;
+    background-color: #AAA;
+    width: 14em;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+#CourseLevelDevPage main aside .levelItem{
+    display: flex;
+    flex-direction: column;
+    background-color: #EEE;
+    border-radius: 1rem;
+}
+
+#CourseLevelDevPage main aside .levelItem .itemLevelName{
+    background-color: #888;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+#CourseLevelDevPage main aside .addLevelArea{
+    display: flex;
+    flex-direction: column;
+}
+
+#CourseLevelDevPage .d-none{display: none;}
+#CourseLevelDevPage .d-block{display: block;}

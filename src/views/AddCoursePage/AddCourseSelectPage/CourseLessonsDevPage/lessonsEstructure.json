@@ -1,0 +1,27 @@
+{
+    "encabezado": "Nueva leccion",
+    "completable": false,
+    "content": [
+        {
+            "elementType": "imagen",
+            "contenido": "nombreDeLaImagen.png"
+        },
+        {
+            "elementType": "parrafo",
+            "contenido": "Texto del parrafo"
+        },
+        {
+            "elementType": "encabezado",
+            "nivel": "1-3",
+            "contenido": "Texto del encabezado"
+        },
+        {
+            "elementType": "Nota",
+            "contenido": "Contenido de la nota"
+        },
+        {
+            "elementType": "codigo",
+            "contenido": "Codigo del codigo xd"
+        }
+    ]
+}

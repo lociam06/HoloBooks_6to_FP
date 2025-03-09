@@ -88,6 +88,51 @@ app.get("/courses", (req, res) => {
 	}
 });
 
+//Fetch de las niveles de un curso
+app.get("/levels", (req, res) => {
+	const { course_id } = req.query;
+	
+	if(!course_id){
+		return res.status(400).json({ error: "Falta el parámetro 'course_id'" });
+	}
+
+	if(course_id){
+		db.query("SELECT * FROM niveles WHERE curso_id = ?", [course_id], async (err, results) => {
+			if(err){
+				res.status(500).json({ error: "Error al obtener los cursos" });
+			}else{
+				res.send(results);
+			}
+		});
+	}
+});
+
+//GPT-------------------------
+app.get('/lessons', async (req, res) => {
+    const { course_id } = req.query;  // Obtener el ID del curso desde la URL
+
+    if (!course_id) {
+        return res.status(400).json({ error: "Se requiere course_id" });
+    }
+
+	if(course_id){
+		const query = `
+            SELECT lecciones.*
+			FROM lecciones
+			JOIN niveles lv ON lecciones.nivel_id = lv.nivel_id
+			WHERE lv.curso_id = ?;
+        `;
+		db.query(query, [course_id], async (err, results) => {
+			if(err){
+				res.status(500).json({ error: "Error al obtener los cursos" });
+			}else{
+				res.send(results);
+			}
+		});
+	}
+});
+
+
 
 
 
@@ -116,9 +161,9 @@ app.get("/courses", (req, res) => {
 
 //-----------------------------Keily isn't the best
 app.post("/add/course", (req, res) => {
-	const { titulo, descripcion, duracion } = req.body;
-	// Buscar usuario en la base de datos
-	db.query("INSERT INTO cursos(titulo, descripcion, duracion) VALUES(?, ?, ?)", [titulo, descripcion, duracion], async (err, results) => {
+	const { titulo, descripcion, filial } = req.body;
+	// Agregar curso a la base de datops
+	db.query("INSERT INTO cursos(titulo, descripcion, filial) VALUES(?, ?, ?)", [titulo, descripcion, filial], async (err, results) => {
 		if (err) {
 			return res.status(500).send({ message: err.code });
 		}
