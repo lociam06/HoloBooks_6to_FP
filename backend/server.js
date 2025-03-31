@@ -80,7 +80,7 @@ app.get("/courses", (req, res) => {
 	if(filial){
 		db.query("SELECT * FROM cursos WHERE filial = ?", [filial], async (err, results) => {
 			if(err){
-				res.status(500).json({ error: "Error al obtener los cursos" });
+				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
 			}else{
 				res.send(results);
 			}
@@ -99,7 +99,7 @@ app.get("/levels", (req, res) => {
 	if(course_id){
 		db.query("SELECT * FROM niveles WHERE curso_id = ?", [course_id], async (err, results) => {
 			if(err){
-				res.status(500).json({ error: "Error al obtener los cursos" });
+				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
 			}else{
 				res.send(results);
 			}
@@ -124,7 +124,7 @@ app.get('/lessons', async (req, res) => {
         `;
 		db.query(query, [course_id], async (err, results) => {
 			if(err){
-				res.status(500).json({ error: "Error al obtener los cursos" });
+				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
 			}else{
 				res.send(results);
 			}
@@ -132,11 +132,26 @@ app.get('/lessons', async (req, res) => {
 	}
 });
 
+//Updates
+//lecciones
+app.post("/update/lesson", (req, res) => {
+	const { lesson_id, content } = req.body;
+	
+	if(!lesson_id){
+		return res.status(400).json({ error: "Falta el parámetro 'lesson_id'" });
+	}
 
-
-
-
-
+	if(lesson_id){
+		db.query("UPDATE lecciones SET contenido = ? WHERE lecciones.leccion_id = ?", [content, lesson_id], async (err, results) => {
+			if(err){
+				console.log(err);
+				res.status(500).json({ error: "Error al modificar la leccion" });
+			}else{
+				res.send(results);
+			}
+		});
+	}
+});
 
 
 
@@ -200,7 +215,6 @@ app.get("/get/course", (req, res) => {
 		if (err) {
 			return res.status(500).send({ message: err.code });
 		}
-
 		// Si no hay errores, devuelve los resultados de la consulta
 		return res.status(200).json(results);
 	});

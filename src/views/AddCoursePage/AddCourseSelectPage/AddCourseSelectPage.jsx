@@ -6,6 +6,7 @@ import "./AddCourseSelectPage.css";
 export default function AddCourseSelectPage(props) {
     const [listCourses, setListCourses] = useState([]);
     const { filialName } = useParams();
+    const navitage = useNavigate();
     useEffect(() => {
         fetch(`http://localhost:5000/courses?filial=${filialName}`)
             .then((response) => {
@@ -27,6 +28,7 @@ export default function AddCourseSelectPage(props) {
     return (
         <section id="AddCourseSelectPage_body">
             <header id="AddCourseSelectPage_header">
+                <button onClick={() => navitage("/add-course-page")} className="go_back_btn"><i className="fa-solid fa-arrow-left"></i></button>
                 <div className="title">
                     <img src={`../../../../public/icons/${filialName}Book.png`} alt="" />
                     <span>{`Cursos ${filialName}Book`}</span>
@@ -59,10 +61,6 @@ function Course(props) {
             <span>{props.courseName}</span>
         </div>
     )
-}
-
-function CreateCourseModal() {
-
 }
 
 function AddCourseBtn(){

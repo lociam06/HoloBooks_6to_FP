@@ -1,27 +1,29 @@
 {
-    "encabezado": "Nueva leccion",
+    "header": "Nueva leccion",
     "completable": false,
+    "lessonType": "",
     "content": [
         {
-            "elementType": "imagen",
-            "contenido": "nombreDeLaImagen.png"
+            "elementType": "header",
+            "level": "1-3",
+            "content": "Texto del encabezado"
         },
         {
-            "elementType": "parrafo",
-            "contenido": "Texto del parrafo"
+            "elementType": "paragraph",
+            "content": "Texto del parrafo"
         },
         {
-            "elementType": "encabezado",
-            "nivel": "1-3",
-            "contenido": "Texto del encabezado"
+            "elementType": "img",
+            "content": "nombreDeLaImagen.png"
         },
         {
-            "elementType": "Nota",
-            "contenido": "Contenido de la nota"
+            "elementType": "note",
+            "content": "Contenido de la nota"
         },
         {
-            "elementType": "codigo",
-            "contenido": "Codigo del codigo xd"
+            "language": "JS",
+            "elementType": "code",
+            "content": "Codigo del codigo xd"
         }
     ]
 }
