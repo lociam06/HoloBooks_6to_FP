@@ -38,7 +38,7 @@ export default function AddCourseSelectPage(props) {
             <main id="AddCourseSelectPage_main">
                 <div id="courses_container">
                     {listCourses.map((course) => (
-                        <Course key={course.curso_id} course_id={course.curso_id} courseName={course.titulo} />
+                        <Course key={course.curso_id} course_id={course.curso_id} courseName={course.titulo} image={course.imagen}/>
                     ))}
                 <AddCourseBtn />
                 </div>
@@ -57,7 +57,7 @@ function Course(props) {
     }
     return (
         <div className="course" onClick={() => handleCourse()}>
-            <img src="../../../../public/icons/HTML5.png" alt="Imagen de la tecnologia" />
+            <img src={`../../../../public/CourseLogos/${props.image}`} alt="Imagen de la tecnologia" />
             <span>{props.courseName}</span>
         </div>
     )
@@ -65,29 +65,65 @@ function Course(props) {
 
 function AddCourseBtn(){
     const { filialName } = useParams();
-
     const [ titulo, setTitulo ] = useState("");
     const [ descripcion, setDescripcion ] = useState("");
     const [ duracion, setDuracion ] = useState("");
     const [ filial, setFilial ] = useState(filialName);
 
+    const [ imageName, setImageName ] = useState("");
+    const [ imageFile, setImageFile ] = useState(null);
+    const [ imageFileExtension, setImageFileExtension ] = useState("");
+    
     const [ isModalOpen, setIsModalOpen ] = useState(false);
-
+    const handleChangeFile = (e) => {
+        if(e.target.files[0]){
+            const imageFileInput = e.target.files[0];
+            setImageFile(imageFileInput);
+            setImageFileExtension(imageFileInput.type.split("/")[1]);
+            setImageName(titulo + "." + imageFileExtension);
+        }
+    }
+    
+    useEffect(() => {
+        setImageName(titulo + "." + imageFileExtension);
+    },[imageFileExtension])
+    useEffect(() => {
+        console.log(imageName);
+    },[imageName])
+    
     const handleAddReg = async (e) => {
         e.preventDefault();
-        if(!(titulo.trim() == "" || descripcion.trim() == "")){
+        if(!(titulo.trim() == "" || descripcion.trim() == "" || imageName == null)){
             try {
-                const response = await fetch('http://localhost:5000/add/course', {
-                    method: 'POST',
+
+                const uploadImage = async () => {
+                    const formData = new FormData();
+                    formData.append("fileName", titulo);
+                    formData.append("image", imageFile);
+                    const responseImage = await fetch("http://localhost:5000/upload-course-image", {
+                        method: "POST",
+                        body: formData,
+                    })
+                    if(responseImage.ok){
+                        alert("Imagen subida");
+                    }else{
+                        const errorData = await responseImage.json();
+                        console.log("Ha ocurrido un error: " + errorData.message);
+                    }
+                }
+
+                const response = await fetch("http://localhost:5000/add/course", {
+                    method: "POST",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({titulo, descripcion, filial}),
+                    body: JSON.stringify({titulo, descripcion, filial, imageName}),
                 });
     
                 if (response.ok) {
                     alert("Registrado");
                     setIsModalOpen(false);
+                    await uploadImage();
                     window.location.reload();
                 } else {
                     const errorData = await response.json();
@@ -110,11 +146,16 @@ function AddCourseBtn(){
                         <h1>Agregar curso</h1>
                         <div>
                             <label htmlFor="courseTitulo">Titulo</label>
-                            <input type="text" id="courseTitulo" name="courseTitle" value={titulo} onChange={(e) => setTitulo(e.target.value)}/>
+                            <input type="text" id="courseTitulo" name="courseTitle" value={titulo} onInput={(e) => setTitulo(e.target.value)}/>
                         </div>
                         <div>
                             <label htmlFor="courseDescripcion">Descripcion</label>
                             <input type="text" id="courseDescripcion" name="courseDescripcion" value={descripcion} onChange={(e) => setDescripcion(e.target.value)}/>
+                        </div>
+                        <div>
+                            <label htmlFor="courseImage">Imagen</label>
+                            <label htmlFor="courseImage" className="image-input-label"><i className="fa-solid fa-upload"></i> Seleccionar la imagen</label>
+                            <input type="file" id="courseImage" name="courseImage" accept=".jpg,.jpeg,.png" style={{display: "none"}} onChange={(e) => handleChangeFile(e)}></input>
                         </div>
                         <div>
                             <label htmlFor="courseDuracion">Filial</label>

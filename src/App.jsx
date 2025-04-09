@@ -15,6 +15,7 @@ import CourseSelector from "./componets/CourseComponents/CourseSelector/CourseSe
 import CoursePage from "./views/CoursePage/CoursePage.jsx";
 import AddCourseSelectPage from "./views/AddCoursePage/AddCourseSelectPage/AddCourseSelectPage.jsx";
 import CourseLevelDevPage from "./views/AddCoursePage/AddCourseSelectPage/CourseLessonsDevPage/CourseLevelDevPage.jsx";
+import CourseSelectorPage from "./views/CourseSelectorPage/CourseSelectorPage.jsx";
 
 //styles
 import './App.css';
@@ -35,6 +36,9 @@ function App() {
 				{/*Pagianas de los cursos*/}
 				<Route path="/course-page/:filialName" element={<CoursePage />}></Route>				
 				<Route path="/course-selection-page" element={<CoursesSelectionPage />}></Route>
+
+				{/*Pagianas de selecion de cursos*/}
+				<Route path="/course-selector-page/:filial/" element={<CourseSelectorPage />}></Route>				
 
 
 				{/*----------Lo de Keily-------------------*/}

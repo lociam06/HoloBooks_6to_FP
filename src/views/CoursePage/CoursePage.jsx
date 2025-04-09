@@ -31,7 +31,7 @@ function CoursePage(props){
                 <div className="page-description" style={{background: `var(--${pageData.page}_mid)`}}>
                     <div className="content">
                         <p>{pageData.courseDescription}</p>
-                        <Link to="course-selector">
+                        <Link to={`/course-selector-page/${pageData.page}`}>
                             <button>Ir al curso</button>
                         </Link>
                     </div>

@@ -1,0 +1,103 @@
+/*Contenedor de la pagina*/
+#courseSelectorPage_body{
+    min-height: 100vh;
+}
+
+/*Main*/
+#courseSelectorPage_body main{
+    display: flex;
+}
+
+/*contenedor de la barra lateral*/
+#courseSelectorPage_body main aside{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 4rem;
+    padding-top: 5rem;
+    background-color: #FFF;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+#courseSelectorPage_body main aside i{
+    font-size: 2rem;
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    cursor: pointer;
+}
+#courseSelectorPage_body main aside .courseCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CCC;
+    padding: 2rem;
+    border-radius: 10px;
+}
+#courseSelectorPage_body main aside .courseCard:hover{
+    cursor: pointer;
+    outline: 5px solid var(--web_mid);
+}
+#courseSelectorPage_body main aside .courseCard.selected{
+    outline: 5px solid var(--web_mid);
+}
+#courseSelectorPage_body main aside .courseCard img{
+    width: 90%;
+}
+
+/*Descripcion de los cursos*/
+#courseSelectorPage_body main .courseDescription{
+    width: 70%;
+    background: linear-gradient(45deg, var(--web_light), var(--web_dark));
+}
+#courseSelectorPage_body main .courseDescription .courseDescription_content{
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5rem 10rem;
+    padding-bottom: 0;
+    align-items: center;
+    gap: 2rem;
+    overflow-y: scroll;
+    height: 85vh;
+    position: relative;
+}
+#courseSelectorPage_body main .courseDescription .courseDescription_content::-webkit-scrollbar {
+    display: none;
+}
+#courseSelectorPage_body main .courseDescription h1{
+    font-size: 2.5rem;
+    margin: 0.5rem;
+}
+#courseSelectorPage_body main .courseDescription p.courseDescription_text{
+    font-size: 1.3rem;
+}
+#courseSelectorPage_body main .courseDescription code.codeExample{
+    background-color: #FFF;
+    color: var(--web_mid);
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+#courseSelectorPage_body main .courseDescription .courseDescription_StartBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+#courseSelectorPage_body main .courseDescription .courseDescription_StartBtn button{
+    background-color: #FFF;
+    color: var(--web_mid);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+}
+#courseSelectorPage_body main .courseDescription img.filialIcon{
+    width: 10rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}

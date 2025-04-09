@@ -1,11 +1,13 @@
 import express, { query } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
+import path from "path";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import connection from "./conectionDB.js";
+import multer from "multer";
 const db = connection;
-import {} from "dotenv/config";
+import { } from "dotenv/config";
 
 const app = express();
 
@@ -45,7 +47,7 @@ app.post("/login", (req, res) => {
 			return res.status(401).send({ message: 'Invalid password' });
 		}
 		// Generar token
-		res.send({ message: 'Login successful'});
+		res.send({ message: 'Login successful' });
 	});
 });
 
@@ -73,15 +75,15 @@ app.listen(PORT, () => {
 app.get("/courses", (req, res) => {
 	const { filial } = req.query;
 
-	if(!filial){
+	if (!filial) {
 		return res.status(400).json({ error: "Falta el parámetro 'filial'" });
 	}
 
-	if(filial){
+	if (filial) {
 		db.query("SELECT * FROM cursos WHERE filial = ?", [filial], async (err, results) => {
-			if(err){
+			if (err) {
 				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
-			}else{
+			} else {
 				res.send(results);
 			}
 		});
@@ -91,31 +93,30 @@ app.get("/courses", (req, res) => {
 //Fetch de las niveles de un curso
 app.get("/levels", (req, res) => {
 	const { course_id } = req.query;
-	
-	if(!course_id){
+
+	if (!course_id) {
 		return res.status(400).json({ error: "Falta el parámetro 'course_id'" });
 	}
 
-	if(course_id){
+	if (course_id) {
 		db.query("SELECT * FROM niveles WHERE curso_id = ?", [course_id], async (err, results) => {
-			if(err){
+			if (err) {
 				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
-			}else{
+			} else {
 				res.send(results);
 			}
 		});
 	}
 });
 
-//GPT-------------------------
 app.get('/lessons', async (req, res) => {
-    const { course_id } = req.query;  // Obtener el ID del curso desde la URL
+	const { course_id } = req.query;
 
-    if (!course_id) {
-        return res.status(400).json({ error: "Se requiere course_id" });
-    }
+	if (!course_id) {
+		return res.status(400).json({ error: "Se requiere course_id" });
+	}
 
-	if(course_id){
+	if (course_id) {
 		const query = `
             SELECT lecciones.*
 			FROM lecciones
@@ -123,9 +124,9 @@ app.get('/lessons', async (req, res) => {
 			WHERE lv.curso_id = ?;
         `;
 		db.query(query, [course_id], async (err, results) => {
-			if(err){
+			if (err) {
 				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
-			}else{
+			} else {
 				res.send(results);
 			}
 		});
@@ -136,17 +137,17 @@ app.get('/lessons', async (req, res) => {
 //lecciones
 app.post("/update/lesson", (req, res) => {
 	const { lesson_id, content } = req.body;
-	
-	if(!lesson_id){
+
+	if (!lesson_id) {
 		return res.status(400).json({ error: "Falta el parámetro 'lesson_id'" });
 	}
 
-	if(lesson_id){
+	if (lesson_id) {
 		db.query("UPDATE lecciones SET contenido = ? WHERE lecciones.leccion_id = ?", [content, lesson_id], async (err, results) => {
-			if(err){
+			if (err) {
 				console.log(err);
 				res.status(500).json({ error: "Error al modificar la leccion" });
-			}else{
+			} else {
 				res.send(results);
 			}
 		});
@@ -154,31 +155,31 @@ app.post("/update/lesson", (req, res) => {
 });
 
 
+//---------------Subir imagenes------------------
+const logoStorage = multer.diskStorage({
+	destination: "./public/CourseLogos/",
+	filename: (req, file, cb) => {
+		const extension = path.extname(file.originalname);
+		console.log(req.body.fileName);
+		const fileName = req.body.fileName;
+		cb(null, fileName + extension);
+	}
+});
+const upload = multer({ storage: logoStorage });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.post('/upload-course-image', upload.single("image"), (req, res) => {
+	if (!req.file) {
+	  return res.status(400).send('No imagen');
+	}
+	res.send(`Imagen subida correctamente: /imagenes/${req.file.filename}"`);
+});
 
 
 //-----------------------------Keily isn't the best
 app.post("/add/course", (req, res) => {
-	const { titulo, descripcion, filial } = req.body;
+	const { titulo, descripcion, filial, imageName} = req.body;
 	// Agregar curso a la base de datops
-	db.query("INSERT INTO cursos(titulo, descripcion, filial) VALUES(?, ?, ?)", [titulo, descripcion, filial], async (err, results) => {
+	db.query("INSERT INTO cursos(titulo, descripcion, filial, imagen) VALUES(?, ?, ?, ?)", [titulo, descripcion, filial, imageName], async (err, results) => {
 		if (err) {
 			return res.status(500).send({ message: err.code });
 		}
@@ -211,7 +212,7 @@ app.post("/add/lesson", (req, res) => {
 //gets
 app.get("/get/course", (req, res) => {
 	// Buscar los cursos
-	db.query("Select curso_id, titulo from cursos",async (err, results) => {
+	db.query("Select curso_id, titulo from cursos", async (err, results) => {
 		if (err) {
 			return res.status(500).send({ message: err.code });
 		}
@@ -223,7 +224,7 @@ app.get("/get/course", (req, res) => {
 
 app.get("/get/levels", (req, res) => {
 	// Buscar los cursos
-	db.query("Select nivel_id, curso_id, titulo from niveles",async (err, results) => {
+	db.query("Select nivel_id, curso_id, titulo from niveles", async (err, results) => {
 		if (err) {
 			return res.status(500).send({ message: err.code });
 		}
