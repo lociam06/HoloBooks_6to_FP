@@ -1,0 +1,99 @@
+#level-selector-page {
+    background: linear-gradient(90deg, var(--web_light), var(--web_dark));
+    min-height: 100vh;
+}
+
+/*      El header      */
+#level-selector-page header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#level-selector-page header .go-back-btn {
+    font-size: 2rem;
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+}
+
+#level-selector-page header .filial-icon {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 130px;
+}
+
+/*Barra de progreso*/
+#level-selector-page header .progress-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 2rem;
+    width: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFF;
+}
+
+#level-selector-page header .progress-bar-container .progress-bar {
+    background-color: #AAA;
+    border-radius: 20px;
+    height: 20px;
+}
+
+#level-selector-page header .progress-bar-container .progress-bar .bar-fill {
+    background-color: #FFF;
+    border-radius: 20px;
+    width: 50%;
+    height: 100%;
+}
+
+/*       Contenedor de niveles       */
+#level-selector-page main .levels-container {
+    margin: 3rem 10rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 5fr);
+    row-gap: 3rem;
+    align-items: end;
+    justify-items: center;
+}
+
+/*Niveles*/
+#level-selector-page main .levels-container .level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#level-selector-page main .levels-container .level .level-name {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+#level-selector-page main .levels-container .level .level-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    height: 80px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+#level-selector-page main .levels-container .level .level-circle i {
+    font-size: 3.5rem;
+}
+
+#level-selector-page main .levels-container .level .level-circle i.level-completed-icon {
+    background: linear-gradient(180deg, var(--web_light), var(--web_dark));
+    background-clip: content-box; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#level-selector-page main .levels-container .level .level-circle i.level-uncompleted-icon {
+    color: #AAA;
+}

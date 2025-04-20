@@ -87,7 +87,7 @@ export default function CourseLevelDevPage() {
             </header>
             <main id="CourseLevelDevPage_main">
                 <aside>
-                    <button className="goBackBtn" onClick={() => navigate("/add-course-page/web/")}><i className="fa-solid fa-arrow-left"></i></button>
+                    <button className="goBackBtn" onClick={() => navigate(-1)}><i className="fa-solid fa-arrow-left"></i></button>
                     {listLevels.map((level) => (
                         <LevelElem levelTitle={level.titulo} displayed={level.nivel_id == levelDropped} levelID={level.nivel_id} key={level.nivel_id}>
                             {listLessons

@@ -16,6 +16,10 @@ import CoursePage from "./views/CoursePage/CoursePage.jsx";
 import AddCourseSelectPage from "./views/AddCoursePage/AddCourseSelectPage/AddCourseSelectPage.jsx";
 import CourseLevelDevPage from "./views/AddCoursePage/AddCourseSelectPage/CourseLessonsDevPage/CourseLevelDevPage.jsx";
 import CourseSelectorPage from "./views/CourseSelectorPage/CourseSelectorPage.jsx";
+import LevelSelectorPage from "./views/LevelSelectorPage/LevelSelectorPage.jsx";
+
+//imagenes
+
 
 //styles
 import './App.css';
@@ -37,8 +41,10 @@ function App() {
 				<Route path="/course-page/:filialName" element={<CoursePage />}></Route>				
 				<Route path="/course-selection-page" element={<CoursesSelectionPage />}></Route>
 
-				{/*Pagianas de selecion de cursos*/}
-				<Route path="/course-selector-page/:filial/" element={<CourseSelectorPage />}></Route>				
+				{/*Paginas de selecion de cursos*/}
+				<Route path="/course-selector-page/:filial/" element={<CourseSelectorPage />}></Route>
+				{/*Pagina de seleccion de niveles*/}	
+				<Route path="/course-selector-page/:filial/:courseId" element={<LevelSelectorPage />}></Route>
 
 
 				{/*----------Lo de Keily-------------------*/}

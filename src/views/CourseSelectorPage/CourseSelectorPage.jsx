@@ -7,6 +7,7 @@ export default function CourseSelectorPage(){
     const [ coursesList, setCoursesList ] = useState([]);
     const { filial } = useParams();
     const initialCourseDescription = {
+        CourseId: 0,
         Name: "Nombre del curso",
         Description: "Descripcion del curso Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatibus doloribus repudiandae nisi voluptatum eligendi libero dolores laboriosam, laudantium dolore, harum enim aperiam animi reprehenderit. Iste sequi voluptatem itaque quas.",
         CodeExample: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
@@ -27,6 +28,7 @@ export default function CourseSelectorPage(){
                 setCoursesList(data);
                 console.log(data)
                 setCourseDescriptionContent({
+                    CourseId: data[0].curso_id,
                     Name: data[0].titulo,
                     Description: data[0].descripcion,
                     CodeExample: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione animi quae esse atque, facilis deleniti itaque, minus laborum et autem distinctio sequi. Architecto voluptates ipsum facilis nobis enim, omnis pariatur."
@@ -55,8 +57,10 @@ export default function CourseSelectorPage(){
 }
 
 function CouseCard({ setCourseDescription, course }){
+    const [ courseImg, setCourseImg ] = useState(course.imagen);
     function handleCourseCardClick(){
         setCourseDescription({
+            CourseId: course.curso_id,
             Name: course.titulo,
             Description: course.descripcion,
             CodeExample: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione animi quae esse atque, facilis deleniti itaque, minus laborum et autem distinctio sequi. Architecto voluptates ipsum facilis nobis enim, omnis pariatur."
@@ -64,35 +68,33 @@ function CouseCard({ setCourseDescription, course }){
     }
     return(
         <div className="courseCard" onClick={() => handleCourseCardClick()}>
-            <img src={`../../../public/CourseLogos/${course.imagen}`} alt="" />
+            <img src={`/CourseLogos/${courseImg}`} alt="" onError={() => setCourseImg(`no_course_logo.png`)}/>
             {/*<img src={`https://cdn.pixabay.com/photo/2018/05/08/21/37/html5-3384039_1280.png`} alt="" />*/}
         </div>
     )
 }
 
-function CourseDescription({ courseDescriptionContent }){
-    const [ file, setFile ] = useState(null);
-    const handleFileChange = (event) => {
-        console.log(event.target);
-        const selectedFile = event.target.files[0];
-        if(selectedFile){
-            setFile(selectedFile);
-        }
+function CourseDescription({ courseDescriptionContent, courseId }){
+    const navigate = useNavigate()
+    const { filial } = useParams();
+    const styles = {
+        background: `linear-gradient(45deg, var(--${filial}_light), var(--${filial}_dark))`,
     }
+    const colorStyle = {color: `var(--${filial}_mid)`}
     return(
-        <section className="courseDescription">
-            <img className="filialIcon" src="../../../public/icons/webBook_white.png" alt="" />
+        <section className="courseDescription" style={styles}>
+            <img className="filialIcon" src={`/icons/${filial}Book_white.png`} alt="" />
             <div className="courseDescription_content">
                 <h1>{ courseDescriptionContent.Name }</h1>
                 <p className="courseDescription_text">
                     { courseDescriptionContent.Description}
                 </p>
-                <code className="codeExample">
+                <code className="codeExample" style={colorStyle}>
                     { courseDescriptionContent.CodeExample}
                 </code>
             </div>
             <div className="courseDescription_StartBtn">
-                <button>Empezar</button>
+                <button onClick={() => navigate(`/course-selector-page/${filial}/${courseDescriptionContent.CourseId}`)} style={colorStyle}>Empezar</button>
             </div>
         </section>
     )

@@ -48,6 +48,7 @@ export default function AddCourseSelectPage(props) {
 }
 
 function Course(props) {
+    const [ courseImg, setCourseImg ] = useState(props.image);
     const { filialName } = useParams();
     const [ filialNameS, setFilianame ] = useState(filialName);
     const navigate = useNavigate();
@@ -57,7 +58,7 @@ function Course(props) {
     }
     return (
         <div className="course" onClick={() => handleCourse()}>
-            <img src={`../../../../public/CourseLogos/${props.image}`} alt="Imagen de la tecnologia" />
+            <img src={`/CourseLogos/${courseImg}`} alt="Imagen de la tecnologia" onError={() => setCourseImg(`no_course_logo.png`)}/>
             <span>{props.courseName}</span>
         </div>
     )
