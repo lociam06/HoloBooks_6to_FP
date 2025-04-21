@@ -89,6 +89,7 @@
 #mainLoginPage #container #switchable h2 {
     margin: 0;
     font-size: 1.8em;
+    text-align: center;
 }
 
 #mainLoginPage #container #switchable p {
@@ -104,7 +105,9 @@
     background-color: #FFF;
     align-self: center;
     color: #000;
-    font-family: Moul;
+    font-family: Cantarell;
     margin-top: 1em;
-    font-size: 0.8em;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 230px;
 }

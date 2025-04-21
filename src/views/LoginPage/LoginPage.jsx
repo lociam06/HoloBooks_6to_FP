@@ -4,6 +4,9 @@ import CusNav from "../../componets/CusNav/CusNav";
 import { useState } from "react";
 
 function LoginPage() {
+    //Elimina la sesion
+    localStorage.removeItem("userToken");
+
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
 
@@ -32,20 +35,16 @@ function LoginPage() {
             // Verificar si la respuesta fue exitosa
             console.log(response.ok);
             if (response.ok) {
+                const data = await response.json();
+                const token = data;
+                // Guardar el token en localStorage
+                localStorage.setItem("userToken", JSON.stringify(token));
                 // Redirigir al dashboard u otra página
-                console.log("Si dique");
                 navigate("/");
             } else {
                 const errorData = await response.json();
                 throw new Error(errorData.message || "Login failed");
-            }
-
-            const data = await response.json();
-            const { token } = data;
-
-            // Guardar el token en localStorage
-            localStorage.setItem("token", token);
-            setMessage("Login successful!");
+            }            
         } catch (err) {
             setMessage(err.message);
         }
@@ -85,7 +84,7 @@ function LoginPage() {
         }
     };
     return (
-        <>
+        <section id="login-page">
             <header>
                 <CusNav />
             </header>
@@ -143,7 +142,7 @@ function LoginPage() {
                     <SwitchableElemnt />
                 </section>
             </main>
-        </>
+        </section>
     )
 }
 
@@ -173,9 +172,17 @@ function SwitchableElemnt() {
     }
     return (
         <div id="switchable" style={switchableStyles}>
-            <h2>HELLO, friend!</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <button id="switch-form-btn" onClick={switchForm}>Hola</button>
+            {activeForm == "loginForm" 
+                ?<h2>!Bienvenido de nuevo!, amigo</h2>
+                :<h2>!!Bienvenido a HOLOBOOKs!!</h2>
+            }
+            <p>La mejor pagina para aprender a programar fácil</p>
+            <button id="switch-form-btn" onClick={switchForm} style={{fontFamily:"Cantarell", fontWeight:"bold", fontSize:"1rem"}}>
+            {activeForm == "loginForm" 
+                ?"Iniciar sesión"
+                :"Registrarse"
+            }
+            </button>
         </div>
     )
 }

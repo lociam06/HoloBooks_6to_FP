@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./CourseSelectorPage.css"
 
 export default function CourseSelectorPage(){
+    console.log(localStorage.getItem("userToken"));
     const navigate = useNavigate();
     const [ coursesList, setCoursesList ] = useState([]);
     const { filial } = useParams();

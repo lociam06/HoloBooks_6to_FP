@@ -47,7 +47,8 @@ app.post("/login", (req, res) => {
 			return res.status(401).send({ message: 'Invalid password' });
 		}
 		// Generar token
-		res.send({ message: 'Login successful' });
+		console.log("Sin problemas dique")
+		res.send(user);
 	});
 });
 

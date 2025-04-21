@@ -1,6 +1,9 @@
 //libraries
 import { Routes, Route } from "react-router-dom"
 
+//Vista protegida elemento
+import ProtectedView from "./componets/ProtectedView/ProtectedView.jsx";
+
 //view
 import HoloBooksMainPage from "./views/HoloBooksMainPage/HoloBooksMainPage.jsx";
 import LoginPage from "./views/LoginPage/LoginPage.jsx";
@@ -42,9 +45,9 @@ function App() {
 				<Route path="/course-selection-page" element={<CoursesSelectionPage />}></Route>
 
 				{/*Paginas de selecion de cursos*/}
-				<Route path="/course-selector-page/:filial/" element={<CourseSelectorPage />}></Route>
+				<Route path="/course-selector-page/:filial/" element={<ProtectedView><CourseSelectorPage /></ProtectedView>}></Route>
 				{/*Pagina de seleccion de niveles*/}	
-				<Route path="/course-selector-page/:filial/:courseId" element={<LevelSelectorPage />}></Route>
+				<Route path="/course-selector-page/:filial/:courseId" element={<ProtectedView><LevelSelectorPage /></ProtectedView>}></Route>
 
 
 				{/*----------Lo de Keily-------------------*/}
