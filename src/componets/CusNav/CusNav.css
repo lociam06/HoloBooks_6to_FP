@@ -25,6 +25,9 @@ nav .right-side .buttons a{
     box-sizing: border-box;
     padding: 2.3em 2.5em;
 }
+nav .right-side .buttons a:hover{
+    background-color: #333;
+}
 
 nav .left-side{
     display: flex;
@@ -40,4 +43,50 @@ nav .left-side a img{
     height: 100%;
     padding: 1em;
     box-sizing: border-box;
+}
+
+/*Boton de perfil*/
+nav .right-side .perfil-btn{
+    display: flex;
+    align-items: center;
+    gap: 20%;
+    color: #FFF;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 2.3em 2.5em;
+    padding-right: 3rem;
+    background-color: transparent;
+    border: none;
+    font-family: Cagliostro;
+    font-size: 1rem;
+    position: relative;
+}
+nav .right-side .perfil-btn:hover{
+    background-color: #333;
+    cursor: pointer;
+}
+nav .right-side .perfil-btn i{
+    font-size: 2rem;
+}
+
+/*Boton de perfil*/
+nav .right-side .perfil-btn .perfil-dropdown{
+    position: absolute;
+    top: 105%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    box-shadow: 0 1px 5px #CCC;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+nav .right-side .perfil-btn .perfil-dropdown a{
+    padding: 1.5rem;
+    background-color: #CCC;
+    color: #000;
+}
+nav .right-side .perfil-btn .perfil-dropdown a:hover{
+    background-color: #AAA;
 }

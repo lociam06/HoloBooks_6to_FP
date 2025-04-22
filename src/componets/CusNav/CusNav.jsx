@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "./CusNav.css"
+import { isLogged, getUserInfo } from "../../utils/authCheck.js"
+import { useState } from "react";
 
 function CusNav(props){
+    const loggedUserInfo = getUserInfo();
+    const [ isPerfilDrpdownDropped, setIsPerfilDrpdownDropped ] = useState(false);
     let styles;
     if(props.color){styles = {background: `var(--${props.color}_mid)`}}
     else{styles = {background: "var(--holo_dark)"}}
@@ -16,12 +20,25 @@ function CusNav(props){
                 <div className="buttons">
                     <Link to="/">Inicio</Link>
                     <Link to="/add-course-page">Cursos++</Link>
-                    <Link to="/course-creation-page">Cursos+</Link>
                     <Link to="/course-selection-page">Cursos</Link>
                     <Link to="#">Contacto</Link>
                     <Link to="/faq-page">FQA</Link>
                     <Link to="#">Info</Link>
-                    <Link to="/login-page">Perfil</Link>
+                    {isLogged() ? (
+                            <button className="perfil-btn" onClick={() => setIsPerfilDrpdownDropped(!isPerfilDrpdownDropped)}>
+                                <i class="fa-solid fa-circle-user"></i>
+                                {loggedUserInfo.nombre}
+                                {isPerfilDrpdownDropped &&
+                                    <div className="perfil-dropdown">
+                                        <Link>Perfin</Link>
+                                        <Link to="/login-page">Cerrar sesion</Link>
+                                    </div>
+                                }
+                            </button>
+                            ) : (
+                                <Link to="/login-page">Iniciar sesion</Link>
+                            )
+                        }
                 </div>
             </div>
         </nav>
