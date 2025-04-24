@@ -81,6 +81,7 @@
     height: 80px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+    position: relative;
 }
 
 #level-selector-page main .levels-container .level .level-circle i {
@@ -96,4 +97,22 @@
 
 #level-selector-page main .levels-container .level .level-circle i.level-uncompleted-icon {
     color: #AAA;
+}
+
+/*La linea de los niveles*/
+.level-circle::before{
+    content: '';
+    background-color: #FFF;
+    position: absolute;
+    min-width: 100px;
+    min-height: 6px;
+}
+/*La linea de los niveles*/
+.level-circle.start::before{
+    left: 100%;
+    width: 10.2rem;
+}
+.level-circle.mid0::before{
+    left: 100%;
+    width: 10.2rem;
 }

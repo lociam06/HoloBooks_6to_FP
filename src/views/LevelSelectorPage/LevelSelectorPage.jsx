@@ -7,6 +7,9 @@ export default function LevelSelectorPage() {
     const navigate = useNavigate();
     const [levelsList, setLevelsList] = useState([]);
     const [progressList, setProgressList] = useState([]);
+    let levelIndex = 1;
+    let levelClass = "start" || "mid0" || "mid1" || "rowEnd0" || "rowEnd1" || "end";
+
     useEffect(() => {
         fetch(`http://localhost:5000/levels?course_id=${courseId}`)
         .then((response) => {
@@ -22,10 +25,6 @@ export default function LevelSelectorPage() {
             setLevelsList(data);
         })
     }, []);
-
-    useEffect(() => {
-        console.log(levelsList);
-    }, [levelsList])
     return (
         <section id="level-selector-page">
             <header>
@@ -42,7 +41,22 @@ export default function LevelSelectorPage() {
                 <div className="levels-container">
                     {
                         levelsList.map((level) => {
-                            return <Level levelName={level.titulo} completed=""/>
+                            //console.log((levelIndex % 5) == 0) levelClass = "rowEnd0");
+                            for(let i = 1; i <= 100; i++){
+                                console.log("indice: " + i)
+                                console.log(Math.trunc((i - 1) / 5) % 2);
+                            }
+                            console.log("level index: " + levelIndex)
+                            console.log(Math.trunc(levelIndex / 5) % 2);
+                            if(levelIndex == 1) levelClass = "start";
+                            if(Math.trunc(levelIndex / 5) % 2 == 0){
+                                if((levelIndex % 5) == 0) levelClass = "rowEnd0";
+                                else levelClass = "mid0";
+                                //console.log("level index: " + levelIndex)
+                                //console.log(levelIndex % 5);
+                            }
+                            levelIndex++;
+                            return <Level key={level.nivel_id} levelName={level.titulo} completed="" styleClass={levelClass}/>
                         })
                     }
                 </div>
@@ -51,11 +65,11 @@ export default function LevelSelectorPage() {
     )
 }
 
-function Level({ levelName, completed }) {
+function Level({ levelName, completed, styleClass }) {
     return (
         <div className="level">
-            <div className="level-name">{ levelName }</div>
-            <div className="level-circle">
+            <div className={"level-name " + styleClass}>{ levelName }</div>
+            <div className={"level-circle " + styleClass}>
                 {completed
                     ? <i className="level-completed-icon fa-solid fa-check"></i>
                     : <i className="level-uncompleted-icon fa-solid fa-circle"></i>
