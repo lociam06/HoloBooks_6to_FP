@@ -35,7 +35,7 @@ function CoursePage(props){
                             <button id="">Ir al curso</button>
                         </Link>
                     </div>
-                    <img src={"../../../public/icons/" + pageData.page + "Book_white.png"} alt="Imagen alusiva" />
+                    <img src={"/icons/" + pageData.page + "Book_white.png"} alt="Imagen alusiva" />
                 </div>
                 <div className="registered-users">
                     <span className="num-of-users" style={{backgroundImage: `linear-gradient(90deg, var(--${pageData.page}_dark) , var(--${pageData.page}_mid) , var(--${pageData.page}_light))`}}>{pageData.numOfUsers.toLocaleString("en-US")}</span>
