@@ -92,50 +92,50 @@ function LoginPage() {
                 <section id="container">
                     <div id="loginCont" className="formCont">
                         <form action="/login" id="loginForm">
-                            <h2>Log in</h2>
+                            <h2>Iniciar Sesión</h2>
                             <div>
-                                <label htmlFor="emailInput">Email</label>
+                                <label htmlFor="emailInput">Correo</label>
                                 <input 
                                     type="text" 
                                     name="emailInput" 
                                     id="logEmailInput" 
-                                    placeholder="Email" 
+                                    placeholder="Correo" 
                                     value={LEmail}
                                     onChange={(e) => setLEmail(e.target.value)}
                                     required
                                 />
                             </div>
                             <div>
-                                <label htmlFor="passwordInput">Password</label>
+                                <label htmlFor="passwordInput">Contraseña</label>
                                 <input 
                                     type="password" 
                                     name="passwordInput" 
                                     id="logPasswordInput" 
-                                    placeholder="Password" 
+                                    placeholder="Contraseña" 
                                     value={LPassword}
                                     onChange={(e) => setLPassword(e.target.value)}
                                     required
                                 />
                             </div>
-                            <button type="submit" onClick={handleLogin}>Log in</button>
+                            <button type="submit" onClick={handleLogin}>Enviar</button>
                         </form>
                     </div>
                     <div id="registreCont" className="formCont">
                         <form action="/register" id="registreForm">
-                            <h2>Sin up</h2>
+                            <h2>Registro</h2>
                             <div>
-                                <label htmlFor="userNameInput">Name</label>
-                                <input type="text" name="userNameInput" id="regUserNameInput" placeholder="Name" onChange={(e) => setRName(e.target.value)} required/>
+                                <label htmlFor="userNameInput">Nombre de Usuario</label>
+                                <input type="text" name="userNameInput" id="regUserNameInput" placeholder="Nombre de Usuario" onChange={(e) => setRName(e.target.value)} required/>
                             </div>
                             <div>
-                                <label htmlFor="emailInput">Email</label>
-                                <input type="text" name="emailInput" id="regEmailInput" placeholder="Email" onChange={(e) => setREmail(e.target.value)} required/>
+                                <label htmlFor="emailInput">Correo</label>
+                                <input type="text" name="emailInput" id="regEmailInput" placeholder="Correo" onChange={(e) => setREmail(e.target.value)} required/>
                             </div>
                             <div>
-                                <label htmlFor="passwordInput">Password</label>
-                                <input type="password" name="passwordInput" id="regPasswordInput" placeholder="Password" onChange={(e) => setRPassword(e.target.value)} required/>
+                                <label htmlFor="passwordInput">Contraseña</label>
+                                <input type="password" name="passwordInput" id="regPasswordInput" placeholder="Contraseña" onChange={(e) => setRPassword(e.target.value)} required/>
                             </div>
-                            <button type="submit" onClick={handleRegister}>Sing up</button>
+                            <button type="submit" onClick={handleRegister}>Enviar</button>
                         </form>
                     </div>
 
@@ -173,14 +173,14 @@ function SwitchableElemnt() {
     return (
         <div id="switchable" style={switchableStyles}>
             {activeForm == "loginForm" 
-                ?<h2>!Bienvenido de nuevo!, amigo</h2>
-                :<h2>!!Bienvenido a HOLOBOOKs!!</h2>
+                ?<h2>!Bienvenido de nuevo, amigo!</h2>
+                :<h2>!Bienvenido a HOLOBOOKS!</h2>
             }
-            <p>La mejor pagina para aprender a programar fácil</p>
+            <p>La mejor pagina para aprender a programar</p>
             <button id="switch-form-btn" onClick={switchForm} style={{fontFamily:"Cantarell", fontWeight:"bold", fontSize:"1rem"}}>
             {activeForm == "loginForm" 
-                ?"Iniciar sesión"
-                :"Registrarse"
+                ?"Registrarse"
+                :"Iniciar Sesión"
             }
             </button>
         </div>
