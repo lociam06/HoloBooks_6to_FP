@@ -26,6 +26,11 @@
     width: 3vw;
     font-size: 2rem;
 }
+
+.user-comment .user .avatar{
+    border-radius: 48%;
+} 
+
 /*comments container*/
 .user-testimonials .carousel .carousel-comment-container{
     display: flex;

@@ -19,7 +19,7 @@ export default function CourseSelectorPage(){
         fetch(`http://localhost:5000/courses?filial=${filial}`)
             .then((response) => {
                 if(!response.ok){
-                    console.log("ha ocuurido un errror");
+                    console.log("ha ocurido un errror");
                     return;
                 }else{
                     return response.json();

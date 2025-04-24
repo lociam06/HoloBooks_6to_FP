@@ -22,7 +22,6 @@ function CusNav(props){
                     <Link to="/add-course-page">Cursos++</Link>
                     <Link to="/course-selection-page">Cursos</Link>
                     <Link to="#">Contacto</Link>
-                    <Link to="/faq-page">FQA</Link>
                     <Link to="#">Info</Link>
                     {isLogged() ? (
                             <button className="perfil-btn" onClick={() => setIsPerfilDrpdownDropped(!isPerfilDrpdownDropped)}>

@@ -26,13 +26,13 @@ function CoursePage(props){
                 <Banner />
                 <div className="page-label">
                     <img src={"../../../public/icons/" + pageData.page + "Book.png"} alt="Icono del curso" />
-                    <p>{pageData.label}</p>
+                    <p id="courseDataP">{pageData.label}</p>
                 </div>
                 <div className="page-description" style={{background: `var(--${pageData.page}_mid)`}}>
                     <div className="content">
-                        <p>{pageData.courseDescription}</p>
+                        <p id="courseDescP">{pageData.courseDescription}</p>
                         <Link to={`/course-selector-page/${pageData.page}`}>
-                            <button>Ir al curso</button>
+                            <button id="">Ir al curso</button>
                         </Link>
                     </div>
                     <img src={"../../../public/icons/" + pageData.page + "Book_white.png"} alt="Imagen alusiva" />
