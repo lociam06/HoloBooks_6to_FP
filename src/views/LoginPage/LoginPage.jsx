@@ -33,7 +33,6 @@ function LoginPage() {
             });
 
             // Verificar si la respuesta fue exitosa
-            console.log(response.ok);
             if (response.ok) {
                 const data = await response.json();
                 const token = data;
@@ -43,6 +42,7 @@ function LoginPage() {
                 navigate("/");
             } else {
                 const errorData = await response.json();
+                alert("Usuario o contraseña incorrecta");
                 throw new Error(errorData.message || "Login failed");
             }            
         } catch (err) {
@@ -87,6 +87,7 @@ function LoginPage() {
         <section id="login-page">
             <header>
                 <CusNav />
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint, facere ipsum veniam distinctio eos eligendi voluptatem facilis vel tempora qui, illo consectetur maxime corrupti beatae voluptate quas repellendus amet ipsam.
             </header>
             <main id="mainLoginPage">
                 <section id="container">
