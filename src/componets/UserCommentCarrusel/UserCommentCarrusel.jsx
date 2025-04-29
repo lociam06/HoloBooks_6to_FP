@@ -35,7 +35,7 @@ export function UserComment(props){
     return (
         <div className="user-comment">
             <div className="user">
-                <img src={`../../../icons/users/${props.userAvatar}`} alt="avatar" className="avatar" />
+                <img src={`/icons/users/${props.userAvatar}`} alt="avatar" className="avatar" />
                 <span className="userName">{props.userName}</span>
             </div>
             <p className="comment">{props.comment}</p>

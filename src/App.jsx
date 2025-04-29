@@ -7,7 +7,6 @@ import ProtectedView from "./componets/ProtectedView/ProtectedView.jsx";
 //view
 import HoloBooksMainPage from "./views/HoloBooksMainPage/HoloBooksMainPage.jsx";
 import LoginPage from "./views/LoginPage/LoginPage.jsx";
-import FaqPage from "./views/FaqPage/FaqPage.jsx";
 import AddCoursePage from "./views/AddCoursePage/AddCoursePage.jsx";
 import CourseCreationPage from "./views/CourseCreationPage/CourseCreationPage.jsx";
 import CreateCourseForm from "./views/CourseCreationPage/forms/CreateCourseForm.jsx";
@@ -34,7 +33,6 @@ function App() {
 				{/*El login*/}
 				<Route path="/" element={<HoloBooksMainPage />} />
 				<Route path="/login-page" element={<LoginPage />} />
-				<Route path="/faq-page" element={<FaqPage />} />
 
 				<Route path="/add-course-page" element={<AddCoursePage />} />
     			<Route path="/add-course-page/:filialName" element={<AddCourseSelectPage />} />

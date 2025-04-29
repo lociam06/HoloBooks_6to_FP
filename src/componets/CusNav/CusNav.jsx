@@ -25,7 +25,7 @@ function CusNav(props){
                     <Link to="#">Info</Link>
                     {isLogged() ? (
                             <button className="perfil-btn" onClick={() => setIsPerfilDrpdownDropped(!isPerfilDrpdownDropped)}>
-                                <i class="fa-solid fa-circle-user"></i>
+                                <i className="fa-solid fa-circle-user"></i>
                                 {loggedUserInfo.nombre}
                                 {isPerfilDrpdownDropped &&
                                     <div className="perfil-dropdown">

@@ -1,5 +1,4 @@
 #level-selector-page {
-    background: linear-gradient(90deg, var(--web_light), var(--web_dark));
     min-height: 100vh;
 }
 
@@ -52,12 +51,21 @@
 
 /*       Contenedor de niveles       */
 #level-selector-page main .levels-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     margin: 3rem 10rem 1.5rem;
-    display: grid;
+    margin-bottom: 0;
+    padding-bottom: 3rem;
     grid-template-columns: repeat(5, 5fr);
-    row-gap: 3rem;
-    align-items: end;
     justify-items: center;
+}
+#level-selector-page main .levels-container .row{
+    display: flex;
+    justify-content: start;
+}
+#level-selector-page main .levels-container .row.reversed{
+    justify-content: end;
 }
 
 /*Niveles*/
@@ -66,6 +74,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 20%;
 }
 
 #level-selector-page main .levels-container .level .level-name {
@@ -81,6 +90,7 @@
     height: 80px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+    position: relative;
 }
 
 #level-selector-page main .levels-container .level .level-circle i {
@@ -96,4 +106,48 @@
 
 #level-selector-page main .levels-container .level .level-circle i.level-uncompleted-icon {
     color: #AAA;
+}
+
+/*La linea de los niveles*/
+.level-circle::before{
+    content: '';
+    background-color: #FFF;
+    position: absolute;
+    min-width: 100px;
+    min-height: 6px;
+}
+/*La linea de los niveles*/
+.level-circle.start::before{
+    left: 100%;
+    width: 10.2rem;
+}
+.level-circle.end::before{
+    content: none;
+}
+.level-circle.mid0::before{
+    left: 100%;
+    width: 10.2rem;
+}
+.level-circle.mid1::before{
+    right: 100%;
+    width: 10.2rem;
+}
+.level-circle.rowEnd0::before, .level-circle.rowEnd1::before{
+    height: 10.6rem;
+    aspect-ratio: cal(10.6rem * 2);
+    transform: translateY(47%);
+    border: 6px solid #FFF;
+    background-color: transparent;
+}
+.level-circle.rowEnd0::before{
+    left: 100%;
+    border-left: none;
+    border-top-right-radius: 11.4rem;
+    border-bottom-right-radius: 11.4rem;
+}
+.level-circle.rowEnd1::before{
+    border-right: none;
+    right: 100%;
+    border-top-left-radius: 11.4rem;
+    border-bottom-left-radius: 11.4rem;
 }
