@@ -43,9 +43,7 @@ function HoloBooksMainPage() {
 
             </main>
             <CusFooter />
-
             <Link to=""/>
-
         </>
     )
 }
@@ -62,7 +60,7 @@ function CourseCard(props) {
         <div className="course-card">
             <h2 className="title">{props.courseTitle}</h2>
             <div className="card" style={style}>
-                <img src={"../../../public/icons/" + props.imgUrl} alt="logoDelCurso" />
+                <img src={"/icons/" + props.imgUrl} alt="logoDelCurso" />
                 <div className="go-btn">
                         {<button style={btnStyle} onClick={() => handleGoBtn()}>Ir</button>}
                 </div>

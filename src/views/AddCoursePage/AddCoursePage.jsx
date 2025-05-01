@@ -32,7 +32,7 @@ function Course(props){
         <div className="course" onClick={() => handleFilial()}>
             <span className="title">{props.title}</span>
             <div className="img_cont" style={imgContStyles}>
-                <img src={"../../../public/icons/" + props.course + "Book_white.png"} alt="" />
+                <img src={"/icons/" + props.course + "Book_white.png"} alt="" />
             </div>
         </div>
     )

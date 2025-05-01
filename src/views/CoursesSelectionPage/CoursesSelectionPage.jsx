@@ -38,7 +38,7 @@ function CourseCard(props){
     return(
         <div className="course-card" style={style}>
             <div className="img-container">
-                <img src={`../../../public/icons/${props.color}Book_white.png`} alt="imagen del curso" />
+                <img src={`/icons/${props.color}Book_white.png`} alt="imagen del curso" />
             </div>
             <div className="content">
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>

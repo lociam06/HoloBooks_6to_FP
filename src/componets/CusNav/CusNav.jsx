@@ -13,7 +13,7 @@ function CusNav(props){
         <nav style={styles}>
             <div className="left-side">
                 <Link to="/">
-                    <img src={`/public/icons/${props.color ? props.color : "holo"}Book_white.png`} alt="holoBooksLogo"/>
+                    <img src={`/icons/${props.color ? props.color : "holo"}Book_white.png`} alt="holoBooksLogo"/>
                 </Link>
             </div>
             <div className="right-side">

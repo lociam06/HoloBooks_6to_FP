@@ -25,7 +25,7 @@ function CoursePage(props){
             <main id="coursePage">
                 <Banner />
                 <div className="page-label">
-                    <img src={"../../../public/icons/" + pageData.page + "Book.png"} alt="Icono del curso" />
+                    <img src={"/icons/" + pageData.page + "Book.png"} alt="Icono del curso" />
                     <p id="courseDataP">{pageData.label}</p>
                 </div>
                 <div className="page-description" style={{background: `var(--${pageData.page}_mid)`}}>

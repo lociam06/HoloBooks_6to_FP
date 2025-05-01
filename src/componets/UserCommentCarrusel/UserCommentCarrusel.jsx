@@ -32,10 +32,11 @@ export function UserCommentCarrusel(props){
 }
 
 export function UserComment(props){
+    console.log(props)
     return (
         <div className="user-comment">
             <div className="user">
-                <img src={`/icons/users/${props.userAvatar}`} alt="avatar" className="avatar" />
+                <img src={`/icons/${props.userAvatar}`} alt="avatar" className="avatar" />
                 <span className="userName">{props.userName}</span>
             </div>
             <p className="comment">{props.comment}</p>
