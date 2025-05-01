@@ -19,6 +19,7 @@ import AddCourseSelectPage from "./views/AddCoursePage/AddCourseSelectPage/AddCo
 import CourseLevelDevPage from "./views/AddCoursePage/AddCourseSelectPage/CourseLessonsDevPage/CourseLevelDevPage.jsx";
 import CourseSelectorPage from "./views/CourseSelectorPage/CourseSelectorPage.jsx";
 import LevelSelectorPage from "./views/LevelSelectorPage/LevelSelectorPage.jsx";
+import TakeLessonPage from "./views/TakeLessonPage/TakeLessonPage.jsx";
 
 //imagenes
 
@@ -46,7 +47,8 @@ function App() {
 				<Route path="/course-selector-page/:filial/" element={<ProtectedView><CourseSelectorPage /></ProtectedView>}></Route>
 				{/*Pagina de seleccion de niveles*/}	
 				<Route path="/course-selector-page/:filial/:courseId" element={<ProtectedView><LevelSelectorPage /></ProtectedView>}></Route>
-
+				{/*Pagina del nivel*/}
+				<Route path="/course-selector-page/:filial/:courseId/:levelId" element={<ProtectedView><TakeLessonPage /></ProtectedView>}></Route>
 
 				{/*----------Lo de Keily-------------------*/}
 				<Route path="/course-creation-page" element={<CourseCreationPage />} />

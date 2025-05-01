@@ -14,8 +14,11 @@ const app = express();
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json());
-
-const SECRET_KEY = process.env.SECRET_KEY || 'mysecretkey';
+// Iniciar servidor
+const PORT = 5000;
+app.listen(PORT, () => {
+	console.log(`Server running on http://localhost:${PORT}`);
+});
 
 app.get("/", (req, res) => {
 	res.send("Servidor funcionando");
@@ -66,12 +69,6 @@ app.post("/register", (req, res) => {
 	});
 });
 
-// Iniciar servidor
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-	console.log(`Server running on http://localhost:${PORT}`);
-});
-
 //Para el fetch de los cursos
 app.get("/courses", (req, res) => {
 	const { filial } = req.query;
@@ -110,11 +107,23 @@ app.get("/levels", (req, res) => {
 	}
 });
 
-app.get('/lessons', async (req, res) => {
-	const { course_id } = req.query;
+//fetch de las lecciones
+app.get("/lessons", async (req, res) => {
+	const { course_id, level_id } = req.query;
 
-	if (!course_id) {
-		return res.status(400).json({ error: "Se requiere course_id" });
+	if (!course_id && !level_id) {
+		return res.status(400).json({ error: "Se requiere un paramtro de consulta" });
+	}
+
+	if (level_id) {
+		const query = `SELECT * FROM lecciones WHERE nivel_id = ?`;
+		db.query(query, [level_id], async (err, results) => {
+			if (err) {
+				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
+			} else {
+				res.send(results);
+			}
+		});
 	}
 
 	if (course_id) {
@@ -125,6 +134,31 @@ app.get('/lessons', async (req, res) => {
 			WHERE lv.curso_id = ?;
         `;
 		db.query(query, [course_id], async (err, results) => {
+			if (err) {
+				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
+			} else {
+				res.send(results);
+			}
+		});
+	}
+});
+
+app.get("/progress", (req, res) => {
+	const { course_id, user_id } = req.query;
+
+	if (!course_id) {
+		return res.status(400).json({ error: "Falta el parámetro 'course_id'" });
+	}
+
+	const query = `
+		SELECT progreso.*, cursos.curso_id, niveles.nivel_id FROM progreso
+		join niveles on progreso.nivel_id = niveles.nivel_id
+		join cursos on cursos.curso_id = niveles.curso_id
+		WHERE cursos.curso_id = ?
+		AND progreso.usuario_id = ?
+	`
+	if (course_id) {
+		db.query(query, [course_id, user_id], async (err, results) => {
 			if (err) {
 				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
 			} else {
@@ -146,7 +180,6 @@ app.post("/update/lesson", (req, res) => {
 	if (lesson_id) {
 		db.query("UPDATE lecciones SET contenido = ? WHERE lecciones.leccion_id = ?", [content, lesson_id], async (err, results) => {
 			if (err) {
-				console.log(err);
 				res.status(500).json({ error: "Error al modificar la leccion" });
 			} else {
 				res.send(results);
@@ -170,15 +203,13 @@ const upload = multer({ storage: logoStorage });
 
 app.post('/upload-course-image', upload.single("image"), (req, res) => {
 	if (!req.file) {
-	  return res.status(400).send('No imagen');
+		return res.status(400).send('No imagen');
 	}
 	res.send(`Imagen subida correctamente: /imagenes/${req.file.filename}"`);
 });
 
-
-//-----------------------------Keily isn't the best
 app.post("/add/course", (req, res) => {
-	const { titulo, descripcion, filial, imageName} = req.body;
+	const { titulo, descripcion, filial, imageName } = req.body;
 	// Agregar curso a la base de datops
 	db.query("INSERT INTO cursos(titulo, descripcion, filial, imagen) VALUES(?, ?, ?, ?)", [titulo, descripcion, filial, imageName], async (err, results) => {
 		if (err) {
@@ -209,6 +240,21 @@ app.post("/add/lesson", (req, res) => {
 		res.status(201).send({ message: "registered successfully" });
 	});
 });
+
+app.post("/add/progress", (req, res) => {
+	const { userId, levelId } = req.body;
+	// Buscar usuario en la base de datos
+	db.query("INSERT INTO progreso(usuario_id, nivel_id) VALUES(?, ?)", [userId, levelId], async (err, results) => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send({ message: err.code });
+		}
+		console.log("si: ", results);
+		res.status(201).send({ message: "Progreso" });
+		console.log("Registro exitoso");
+	});
+});
+
 
 //gets
 app.get("/get/course", (req, res) => {

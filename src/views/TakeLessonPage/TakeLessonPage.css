@@ -1,0 +1,151 @@
+#TakeLessonPage{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#TakeLessonPage main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    width: 80%;
+    background-color: #FFF;
+    position: relative;
+    overflow: hidden;
+}
+
+#TakeLessonPage main .lessons-carrousel{
+    flex: 1;    
+    transition: transform 0.5s;
+    max-height: 80%;
+}
+
+#TakeLessonPage main .lessons-carrousel .lessons{
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+#TakeLessonPage main .lessons-carrousel .lessons .lesson{
+    width: 100%;
+    flex-shrink: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    outline: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#TakeLessonPage main .control-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+}
+
+#TakeLessonPage main .control-buttons button{
+    width: 50%;
+}
+
+#TakeLessonPage main button{
+    border: none;
+    background-color: #FFF;
+    width: 64px;
+    height: 64px;
+    transition: 0.3s;
+}
+#TakeLessonPage main .quit-btn-container{
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    z-index: 2;
+}
+
+#TakeLessonPage main button i{
+    font-size: 48px;
+}
+
+#TakeLessonPage main button span{
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#TakeLessonPage main button:hover{
+    background-color: rgb(193, 193, 193);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/*Lesson Components*/
+#TakeLessonPage main .lessons .paragraph{
+    margin: 5px 0px 5px 0px;
+    font-size: 22px;
+}
+
+#TakeLessonPage main .lessons .level-1{
+    margin: 5px 0px 5px 0px;
+    font-size: 2.5rem;
+}
+
+#TakeLessonPage main .lessons .level-2{
+    margin: 5px 0px 5px 0px;
+    font-size: 2rem;
+}
+
+#TakeLessonPage main .lessons .level-3{
+    margin: 5px 0px 5px 0px;
+    font-size: 1.5rem;
+}
+
+#TakeLessonPage main .lessons .note{
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+    width: 60%;
+    background-color: rgb(231, 231, 231);
+    font-size: 20px;
+}
+
+#TakeLessonPage main .lessons .note_title{
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    margin: 0px;
+    color: white;
+    width: auto;
+}
+
+#TakeLessonPage main .lessons .note_content{
+    margin-left: 5px;
+    width: inherit;
+}
+
+#TakeLessonPage main .lessons .code{
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+    width: 60%;
+    background-color: #1b1b1b;
+    font-size: 20px;
+}
+
+#TakeLessonPage main .lessons .code_language{
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    color: #FFF;
+    background-color: #000;
+    width: auto;
+}
+
+#TakeLessonPage main .lessons .code_content{
+    margin-left: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #FFF;
+    width: inherit;
+}

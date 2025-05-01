@@ -29,7 +29,7 @@ function CusNav(props){
                                 {loggedUserInfo.nombre}
                                 {isPerfilDrpdownDropped &&
                                     <div className="perfil-dropdown">
-                                        <Link>Perfin</Link>
+                                        <Link>Perfil</Link>
                                         <Link to="/login-page">Cerrar sesion</Link>
                                     </div>
                                 }

@@ -45,7 +45,6 @@
 #level-selector-page header .progress-bar-container .progress-bar .bar-fill {
     background-color: #FFF;
     border-radius: 20px;
-    width: 50%;
     height: 100%;
 }
 
@@ -91,6 +90,7 @@
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
 }
 
 #level-selector-page main .levels-container .level .level-circle i {
@@ -126,11 +126,11 @@
 }
 .level-circle.mid0::before{
     left: 100%;
-    width: 10.2rem;
+    width: 290%;
 }
 .level-circle.mid1::before{
     right: 100%;
-    width: 10.2rem;
+    width: calc(16.4vw - 79px);
 }
 .level-circle.rowEnd0::before, .level-circle.rowEnd1::before{
     height: 10.6rem;

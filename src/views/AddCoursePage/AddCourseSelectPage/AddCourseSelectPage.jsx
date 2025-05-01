@@ -120,7 +120,6 @@ function AddCourseBtn(){
                     },
                     body: JSON.stringify({titulo, descripcion, filial, imageName}),
                 });
-    
                 if (response.ok) {
                     alert("Registrado");
                     setIsModalOpen(false);
