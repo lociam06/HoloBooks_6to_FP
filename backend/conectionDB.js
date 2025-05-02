@@ -1,9 +1,9 @@
 import mysql from "mysql";
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "holobooks_db"
+    host: "mysql-holobooksdb.alwaysdata.net",
+    user: "411557",
+    password: "holodamin06",
+    database: "holobooksdb_db"
 });
 
 

@@ -80,6 +80,7 @@ app.get("/courses", (req, res) => {
 	if (filial) {
 		db.query("SELECT * FROM cursos WHERE filial = ?", [filial], async (err, results) => {
 			if (err) {
+				console.log(err);
 				res.status(500).json({ error: "E un toyasoooo carasooo no sirvee" });
 			} else {
 				res.send(results);
