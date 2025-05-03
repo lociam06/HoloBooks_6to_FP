@@ -24,7 +24,7 @@ function LoginPage() {
         console.log("try handle");
         try {
             // Realizar la solicitud HTTP con fetch
-            const response = await fetch('http://localhost:5000/login', {
+            const response = await fetch('https://holobooks-6to-fp-be.onrender.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ function LoginPage() {
         }
         
         try {
-            const response = await fetch('http://localhost:5000/register', {
+            const response = await fetch('https://holobooks-6to-fp-be.onrender.com/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

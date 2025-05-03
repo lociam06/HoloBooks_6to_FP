@@ -8,7 +8,7 @@ export default function AddCourseSelectPage(props) {
     const { filialName } = useParams();
     const navitage = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/courses?filial=${filialName}`)
+        fetch(`https://holobooks-6to-fp-be.onrender.com/courses?filial=${filialName}`)
             .then((response) => {
                 if (!response.ok) {
                     console.log("Ha ocurrido un error");
@@ -101,7 +101,7 @@ function AddCourseBtn(){
                     const formData = new FormData();
                     formData.append("fileName", titulo);
                     formData.append("image", imageFile);
-                    const responseImage = await fetch("http://localhost:5000/upload-course-image", {
+                    const responseImage = await fetch("https://holobooks-6to-fp-be.onrender.com/upload-course-image", {
                         method: "POST",
                         body: formData,
                     })
@@ -113,7 +113,7 @@ function AddCourseBtn(){
                     }
                 }
 
-                const response = await fetch("http://localhost:5000/add/course", {
+                const response = await fetch("https://holobooks-6to-fp-be.onrender.com/add/course", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

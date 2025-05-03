@@ -12,7 +12,7 @@ function CreateLessonForm(){
         useEffect(() => {
             // Función para obtener los cursos desde el backend
             const fetchCoursesAndLevels = async () => {
-                let response = await fetch("http://localhost:5000/get/levels", {
+                let response = await fetch("https://holobooks-6to-fp-be.onrender.com/get/levels", {
                     method: "GET",
                 });
                 if (!response.ok) {
@@ -24,7 +24,7 @@ function CreateLessonForm(){
                     setNivelID(data[0].curso_id); // Establece el curso inicial solo si hay datos
                 }
 
-                response = await fetch("http://localhost:5000/get/course", {
+                response = await fetch("https://holobooks-6to-fp-be.onrender.com/get/course", {
                     method: "GET",
                 });
                 if (!response.ok) {
@@ -42,7 +42,7 @@ function CreateLessonForm(){
         
         if(!(nivelID < 1 || orden < 1 || contenido.trim() == "")){
             try {
-                const response = await fetch('http://localhost:5000/add/lesson', {
+                const response = await fetch('https://holobooks-6to-fp-be.onrender.com/add/lesson', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

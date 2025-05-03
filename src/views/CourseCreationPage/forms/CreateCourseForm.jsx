@@ -11,7 +11,7 @@ function CourseCreationPage(){
         e.preventDefault();
         if(!(titulo.trim() == "" || descripcion.trim() == "" || duracion < 1)){
             try {
-                const response = await fetch('http://localhost:5000/add/course', {
+                const response = await fetch('https://holobooks-6to-fp-be.onrender.com/add/course', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

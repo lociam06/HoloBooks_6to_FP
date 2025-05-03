@@ -14,7 +14,7 @@ export default function LevelSelectorPage() {
 
     //Fetch de progreso
     useEffect(() => {
-        fetch(`http://localhost:5000/progress?course_id=${courseId}&user_id=${userInfo.usuario_id}`)
+        fetch(`https://holobooks-6to-fp-be.onrender.com/progress?course_id=${courseId}&user_id=${userInfo.usuario_id}`)
             .then((response) => {
                 if (!response.ok) {
                     console.log("Ha ocurrido un error");
@@ -31,7 +31,7 @@ export default function LevelSelectorPage() {
 
     //Fetch de niveles
     useEffect(() => {
-        fetch(`http://localhost:5000/levels?course_id=${courseId}`)
+        fetch(`https://holobooks-6to-fp-be.onrender.com/levels?course_id=${courseId}`)
             .then((response) => {
                 if (!response.ok) {
                     console.log("Ha ocurrido un error");

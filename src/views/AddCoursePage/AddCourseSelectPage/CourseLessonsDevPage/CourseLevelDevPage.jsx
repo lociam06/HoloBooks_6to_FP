@@ -30,7 +30,7 @@ export default function CourseLevelDevPage() {
 
     //fetch de los niveles
     useEffect(() => {
-        fetch(`http://localhost:5000/levels?course_id=${course_id}`)
+        fetch(`https://holobooks-6to-fp-be.onrender.com/levels?course_id=${course_id}`)
             .then((response) => {
                 if (!response.ok) {
                     console.log("Ha ocurrido un error");
@@ -49,7 +49,7 @@ export default function CourseLevelDevPage() {
 
     //fecth de las lecciones
     useEffect(() => {
-        fetch(`http://localhost:5000/lessons?course_id=${course_id}`)
+        fetch(`https://holobooks-6to-fp-be.onrender.com/lessons?course_id=${course_id}`)
             .then((response) => {
                 if (!response.ok) {
                     console.log("Ha ocurrido un error");
@@ -119,7 +119,7 @@ function LevelElem(props) {
     const handleAddLesson = async () => {
         if (!(nivelID < 1)) {
             try {
-                const response = await fetch('http://localhost:5000/add/lesson', {
+                const response = await fetch('https://holobooks-6to-fp-be.onrender.com/add/lesson', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -191,7 +191,7 @@ function AddLevelArea() {
 
         if (!(titulo.trim() == "")) {
             try {
-                const response = await fetch('http://localhost:5000/add/level', {
+                const response = await fetch('https://holobooks-6to-fp-be.onrender.com/add/level', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -347,7 +347,7 @@ function AddLessonContent({ lessonID, lessonDisplayed, setLessonDisplayed, }) {
         let newLessonDisplayedJSON = JSON.stringify(lessonDisplayedObj);
         setLessonDisplayed(newLessonDisplayedJSON);
         
-        const response = await fetch('http://localhost:5000/update/lesson', {
+        const response = await fetch('https://holobooks-6to-fp-be.onrender.com/update/lesson', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
             body: JSON.stringify({ lesson_id: lessonID, content: newLessonDisplayedJSON}),

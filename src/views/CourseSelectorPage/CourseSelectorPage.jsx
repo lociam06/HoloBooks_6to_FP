@@ -16,7 +16,7 @@ export default function CourseSelectorPage(){
     const [ courseDescriptionContent, setCourseDescriptionContent ] = useState(initialCourseDescription);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/courses?filial=${filial}`)
+        fetch(`https://holobooks-6to-fp-be.onrender.com/courses?filial=${filial}`)
             .then((response) => {
                 if(!response.ok){
                     console.log("ha ocurido un errror");

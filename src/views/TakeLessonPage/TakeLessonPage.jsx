@@ -11,7 +11,7 @@ export default function TakeLessonPage() {
 
     const userInformation = getUserInfo();
     useEffect(() => {
-        fetch(`http://localhost:5000/lessons?level_id=${levelId}`)
+        fetch(`https://holobooks-6to-fp-be.onrender.com/lessons?level_id=${levelId}`)
         .then((response) => {
             if(response.ok)return response.json();
             else console.log("Error en el fetch");
@@ -32,7 +32,7 @@ export default function TakeLessonPage() {
     }
 
     const handleCompleteLesson = async () => {
-        const response = await fetch("http://localhost:5000/add/progress", {
+        const response = await fetch("https://holobooks-6to-fp-be.onrender.com/add/progress", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
