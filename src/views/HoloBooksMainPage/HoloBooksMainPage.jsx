@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import CusNav from "../../componets/CusNav/CusNav.jsx";
-import Banner from "../../componets/Banner/Banner.jsx"
+import Banner from "../../componets/Banner/Banner.jsx";
 import CusFooter from "../../componets/CusFooter/CusFooter.jsx";
 import { UserCommentCarrusel, UserComment } from '../../componets/UserCommentCarrusel/UserCommentCarrusel.jsx';
 import { Link } from 'react-router-dom';
@@ -11,10 +11,10 @@ import "./HoloBooksMainPage.css";
 
 function HoloBooksMainPage() {
     const comments = [
-        <UserComment key="1" userAvatar="whitoutAvatarPhoto.png" userName="User Example1" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
-        <UserComment key="2" userAvatar="whitoutAvatarPhoto.png" userName="User Example2" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
-        <UserComment key="3" userAvatar="whitoutAvatarPhoto.png" userName="User Example3" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
-        <UserComment key="4" userAvatar="whitoutAvatarPhoto.png" userName="User Example4" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+        <UserComment key="1" userAvatar="h1.jpeg" userName="RaulGamer123" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+        <UserComment key="2" userAvatar="h2.jpeg" userName="Lociam06" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+        <UserComment key="3" userAvatar="h3.jpeg" userName="KennyDot" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
+        <UserComment key="4" userAvatar="h4.jpeg" userName="Saturn_" comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto obcaecati velit nihil nam aliquam culpa eveniet dolorum quisquam voluptatem? Commodi sequi, deserunt atque libero explicabo autem voluptates veniam delectus labore." />,
     ];
     return (
         <>
@@ -29,9 +29,9 @@ function HoloBooksMainPage() {
                 <section id="course-selection">
                     <h2>Explora nuestros cursos</h2>
                     <div id="courses-card-container">
-                        <CourseCard imgUrl="webBook_white.png" courseTitle="Desarrollo web" color="web" course="web-index"/>
+                        <CourseCard imgUrl="webBook_white.png" courseTitle="Desarrollo Web" color="web" course="web-index"/>
                         <CourseCard imgUrl="codeBook_white.png" courseTitle="Programacion" color="code" course="code-index"/>
-                        <CourseCard imgUrl="dbaseBook_white.png" courseTitle="Base de datos" color="dbase" course="dbase-index"/>
+                        <CourseCard imgUrl="dbaseBook_white.png" courseTitle="Base de Datos" color="dbase" course="dbase-index"/>
                     </div>
                     <button id="go-to-courses-btn">Ir a los cursos</button>
                 </section>

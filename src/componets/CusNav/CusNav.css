@@ -24,9 +24,11 @@ nav .right-side .buttons a{
     height: 100%;
     box-sizing: border-box;
     padding: 2.3em 2.5em;
+    transition: 0.3s;
 }
 nav .right-side .buttons a:hover{
     background-color: #333;
+    transition: 0.3s;
 }
 
 nav .left-side{
@@ -60,10 +62,12 @@ nav .right-side .perfil-btn{
     font-family: Cagliostro;
     font-size: 1rem;
     position: relative;
+    transition: 0.3s;
 }
 nav .right-side .perfil-btn:hover{
     background-color: #333;
     cursor: pointer;
+    transition: 0.3s;
 }
 nav .right-side .perfil-btn i{
     font-size: 2rem;
@@ -77,14 +81,13 @@ nav .right-side .perfil-btn .perfil-dropdown{
     display: flex;
     flex-direction: column;
     background-color: #000;
-    box-shadow: 0 1px 5px #CCC;
-    border-radius: 15px;
+    box-shadow: 0 1px 5px #373737;
     overflow: hidden;
 }
 
 nav .right-side .perfil-btn .perfil-dropdown a{
     padding: 1.5rem;
-    background-color: #CCC;
+    background-color: #fff;
     color: #000;
 }
 nav .right-side .perfil-btn .perfil-dropdown a:hover{

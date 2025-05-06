@@ -1,0 +1,48 @@
+#profile-page {
+    margin: 150px 30px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+img#userIcon {
+    width: 250px;
+}
+
+div#userInfo {
+    margin: 20px 0px;
+}
+
+#username {
+    font-size: 30px;
+}
+
+div#accountDateBlock {
+    display: flex;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+p#accountDate {
+    margin-left: 5px; 
+}
+
+hr {
+    width: 70%;
+    border: 2px solid grey;
+}
+
+section#profile-progress {
+    margin: 40px 100px;
+}
+
+img.courseIcon {
+    height: 70px;
+}
+
+li.pageCourseContainer {
+    display: flex;
+}
+
+li.courseProgress {
+    font-size: 20px;
+}
