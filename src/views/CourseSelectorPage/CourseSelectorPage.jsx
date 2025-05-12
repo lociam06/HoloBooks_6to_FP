@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./CourseSelectorPage.css"
 
 export default function CourseSelectorPage(){
-    console.log(localStorage.getItem("userToken"));
     const navigate = useNavigate();
     const [ coursesList, setCoursesList ] = useState([]);
     const { filial } = useParams();
@@ -26,6 +25,7 @@ export default function CourseSelectorPage(){
                 }
             })
             .then((data) => {
+                console.log(data);
                 setCoursesList(data);
                 console.log(data)
                 setCourseDescriptionContent({
@@ -46,6 +46,7 @@ export default function CourseSelectorPage(){
                 <aside>
                     <i className="fa-solid fa-arrow-left" onClick={() => navigate("/course-page/" + filial)}></i>
                     {
+                        coursesList &&
                         coursesList.map((course) => {
                             return <CouseCard key={course.curso_id} setCourseDescription={setCourseDescriptionContent} course={course}/>
                         })

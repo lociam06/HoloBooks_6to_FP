@@ -37,7 +37,8 @@ export default function AddCourseSelectPage(props) {
 
             <main id="AddCourseSelectPage_main">
                 <div id="courses_container">
-                    {listCourses.map((course) => (
+                    {listCourses.length > 0 && 
+                    listCourses.map((course) => (
                         <Course key={course.curso_id} course_id={course.curso_id} courseName={course.titulo} image={course.imagen}/>
                     ))}
                 <AddCourseBtn />
