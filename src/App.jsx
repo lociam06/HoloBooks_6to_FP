@@ -20,6 +20,7 @@ import CourseLevelDevPage from "./views/AddCoursePage/AddCourseSelectPage/Course
 import CourseSelectorPage from "./views/CourseSelectorPage/CourseSelectorPage.jsx";
 import LevelSelectorPage from "./views/LevelSelectorPage/LevelSelectorPage.jsx";
 import TakeLessonPage from "./views/TakeLessonPage/TakeLessonPage.jsx";
+import ProfilePage from "./views/ProfilePage/ProfilePage.jsx";
 
 //imagenes
 
@@ -30,10 +31,15 @@ import './App.css';
 function App() {
 	return (
 		<div className="Aplicacion">
+			<head>
+				<link rel="shortcut icon" href="public\icons\holoBook_white.png" type="image/x-icon" />
+			</head>
+
 			<Routes>
 				{/*El login*/}
 				<Route path="/" element={<HoloBooksMainPage />} />
 				<Route path="/login-page" element={<LoginPage />} />
+				<Route path="/profile-page" element={<ProfilePage />} />
 
 				<Route path="/add-course-page" element={<AddCoursePage />} />
     			<Route path="/add-course-page/:filialName" element={<AddCourseSelectPage />} />
